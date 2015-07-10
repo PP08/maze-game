@@ -30,7 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mazeWorld:SKNode?
     var hero:Hero?
     var useTMXFiles:Bool = false
-    
+    var heroIsDead:Bool = false
     
     override func didMoveToView(view: SKView) {
         /* initial properties */
@@ -120,7 +120,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
-        hero!.update()
+        if(heroIsDead == false){
+            
+            hero!.update()
+ 
+        }else{
+            
+            hero!.position = heroLocation
+            heroIsDead = false
+        }
+        
         
     }
     
@@ -154,7 +163,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case BodyType.hero.rawValue | BodyType.boundary.rawValue:
                 println("ran into wall")
-            
+                heroIsDead = true
+                //hero!.position = heroLocation
             
         default:
             return
@@ -163,6 +173,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didEndContact(contact: SKPhysicsContact) {
+        
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        switch(contactMask){
+            
+        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
+            println("is not touching the wall")
+            
+            
+        default:
+            return
+        }
         
     }
     
