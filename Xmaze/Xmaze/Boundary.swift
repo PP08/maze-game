@@ -39,7 +39,7 @@ class Boundary:SKNode {
         self.physicsBody!.friction = 0
         self.physicsBody!.allowsRotation = false
         
-        self.zPosition = 100
+        //self.zPosition = 100
     }
     
 }
