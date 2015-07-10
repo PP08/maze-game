@@ -85,11 +85,11 @@
 		F81121041B506FD0002D9380 /* Xmaze */ = {
 			isa = PBXGroup;
 			children = (
+				F811210B1B506FD0002D9380 /* GameScene.swift */,
 				F81121071B506FD0002D9380 /* AppDelegate.swift */,
 				F81121091B506FD0002D9380 /* GameScene.sks */,
 				F811212B1B507056002D9380 /* hero.swift */,
 				F811212D1B507075002D9380 /* Boundary.swift */,
-				F811210B1B506FD0002D9380 /* GameScene.swift */,
 				F811210D1B506FD0002D9380 /* GameViewController.swift */,
 				F811210F1B506FD0002D9380 /* Main.storyboard */,
 				F81121121B506FD0002D9380 /* Images.xcassets */,
