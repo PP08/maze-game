@@ -52,13 +52,14 @@ class Hero:SKNode {
         
         self.physicsBody!.friction = 0
         self.physicsBody!.dynamic = true // true keep the object within boundaries better
+        
         self.physicsBody!.restitution = 0 // bouncy
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.affectedByGravity = false
         
         
         self.physicsBody!.categoryBitMask = BodyType.hero.rawValue
-        self.physicsBody!.collisionBitMask = 0
+        //self.physicsBody!.collisionBitMask = 0
         self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue
         
     }

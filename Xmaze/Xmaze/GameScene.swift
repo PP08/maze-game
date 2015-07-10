@@ -17,7 +17,7 @@ enum BodyType:UInt32 {
     case sensorLeft = 32
     case pellet = 64
     case enemy = 124
-    //case boundary2 = 256
+    case boundary2 = 256
     
     
 }
@@ -35,7 +35,7 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* initial properties */
         
-        self.backgroundColor = SKColor.blueColor()
+        //self.backgroundColor = SKColor.blueColor()
         view.showsPhysics = true
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
