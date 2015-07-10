@@ -22,7 +22,12 @@ class Boundary:SKNode {
     
     init (fromSKSwithRect rect:CGRect){
         super.init()
-        createBoundary(rect)
+        
+        let newLocation = CGPoint(x: -(rect.size.width / 2), y: -(rect.size.height / 2) )
+        let newRect:CGRect = CGRect (origin: newLocation, size: rect.size)
+        
+        
+        createBoundary(newRect)
     }
     
     func createBoundary(rect:CGRect){
@@ -39,7 +44,7 @@ class Boundary:SKNode {
         self.physicsBody!.friction = 0
         self.physicsBody!.allowsRotation = false
         
-        //self.zPosition = 100
+        self.zPosition = 100
     }
     
 }
