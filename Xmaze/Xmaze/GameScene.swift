@@ -23,7 +23,7 @@ enum BodyType:UInt32 {
 }
 
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
@@ -37,7 +37,9 @@ class GameScene: SKScene {
         
         self.backgroundColor = SKColor.blackColor()
         view.showsPhysics = true
+        
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         
         /* Setup your scene here */
@@ -141,6 +143,27 @@ class GameScene: SKScene {
     func swipedDown(sender: UISwipeGestureRecognizer){
         
         hero!.goDown()
+    }
+    
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        switch(contactMask){
+            
+        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
+                println("ran into wall")
+            
+            
+        default:
+            return
+        }
+        
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        
     }
     
     
