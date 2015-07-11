@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = false
+    var useTMXFiles:Bool = true
     var heroIsDead:Bool = false
     
     override func didMoveToView(view: SKView) {
@@ -108,7 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         } else {
             
-            parseTMXFileWithName("maze")
+            parseTMXFileWithName("Maze")
         }
         
     }
