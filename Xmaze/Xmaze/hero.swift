@@ -32,6 +32,8 @@ class Hero:SKNode {
     var currentDirection = Direction.Right
     var desiredDirection = DesiredDirection.None
     
+    var movingAnimation:SKAction?
+    
     var objectSprite:SKSpriteNode?
     
     required init(coder aDecoder: NSCoder){
@@ -46,6 +48,8 @@ class Hero:SKNode {
         objectSprite = SKSpriteNode(imageNamed: "hero")
         addChild(objectSprite!)
         
+        
+        setUpAnimation()
         
         let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
         self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
@@ -70,16 +74,16 @@ class Hero:SKNode {
             
         case .Right:
             self.position = CGPoint(x: self.position.x + CGFloat(currentSpeed), y: self.position.y)
-            objectSprite!.zRotation = CGFloat( degreesToRadians(-90) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
         case .Left:
             self.position = CGPoint(x: self.position.x - CGFloat(currentSpeed), y: self.position.y)
-            objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(180) )
         case .Up:
             self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(currentSpeed))
-            objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
         case .Down:
             self.position = CGPoint(x: self.position.x, y: self.position.y - CGFloat(currentSpeed))
-            objectSprite!.zRotation = CGFloat( degreesToRadians(180) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(-90) )
         case .None:
             self.position = CGPoint(x: self.position.x, y: self.position.y)
             
@@ -97,23 +101,56 @@ class Hero:SKNode {
     func goUp(){
         
         currentDirection = .Up
+        runAnimation()
         
     }
     
     func goDown(){
         currentDirection = .Down
-        
+        runAnimation()
     }
     
     func goRight(){
         
         currentDirection = .Right
-        
+        runAnimation()
     }
     
     func goLeft(){
         
         currentDirection = .Left
+        runAnimation()
+    }
+    
+    
+    func setUpAnimation() {
+        
+        let atlast = SKTextureAtlas(named: "moving")
+        let array:[String] = ["moving0001", "moving0002", "moving0003", "moving0004", "moving0005", "moving0006", "moving0007", "moving0008", "moving0009", "moving00010", "moving0009", "moving0008", "moving0007", "moving0006", "moving0005", "moving0004", "moving0003", "moving0002" ]
+        
+        var atlasTextures:[SKTexture] = []
+        
+        for (var i = 0; i < array.count; i++) {
+            
+            let texture:SKTexture = atlast.textureNamed(array[i])
+            
+            atlasTextures.insert (texture, atIndex:i)
+        }
+        
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true, restore: false)
+        movingAnimation = SKAction.repeatActionForever(atlasAnimation)
+    
+    }
+    
+    func runAnimation() {
+        
+        objectSprite!.runAction(movingAnimation)
+        
+    }
+    
+    func stopAnimation() {
+        
+        objectSprite!.removeAllActions()
         
     }
     
