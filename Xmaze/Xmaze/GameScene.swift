@@ -230,7 +230,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if (elementName == "object") {
             
             let type:AnyObject? = attributeDict["type"]
-            println(type)
+            if (type as? String == "Boundary") {
+                
+                let newBoundary:Boundary = Boundary(theDict: attributeDict)
+                mazeWorld!.addChild(newBoundary)
+            }
+            
+            
         }
 
     }
