@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="10" tileheight="10" nextobjectid="168">
+ <objectgroup name="Object Layer 1">
+  <object id="51" type="Boundary" x="920" y="820" width="30" height="180"/>
+  <object id="52" type="Boundary" x="980" y="880" width="130" height="30"/>
+  <object id="54" type="Boundary" x="980" y="940" width="70" height="30"/>
+  <object id="55" type="Boundary" x="860" y="820" width="30" height="90"/>
+  <object id="56" type="Boundary" x="980" y="820" width="130" height="30"/>
+  <object id="57" type="Boundary" x="860" y="940" width="30" height="30"/>
+  <object id="59" type="Boundary" x="1080" y="940" width="30" height="30"/>
+  <object id="61" type="Boundary" x="980" y="1060" width="130" height="30"/>
+  <object id="62" type="Boundary" x="1080" y="1120" width="30" height="30"/>
+  <object id="63" type="Boundary" x="980" y="1000" width="130" height="30"/>
+  <object id="64" type="Boundary" x="860" y="1120" width="30" height="30"/>
+  <object id="65" type="Boundary" x="920" y="1030" width="30" height="120"/>
+  <object id="66" type="Boundary" x="980" y="1120" width="70" height="30"/>
+  <object id="67" type="Boundary" x="860" y="1000" width="30" height="90"/>
+  <object id="68" type="Boundary" x="1260" y="880" width="130" height="30"/>
+  <object id="69" type="Boundary" x="1360" y="940" width="30" height="30"/>
+  <object id="70" type="Boundary" x="1260" y="820" width="130" height="30"/>
+  <object id="71" type="Boundary" x="1140" y="940" width="30" height="30"/>
+  <object id="72" type="Boundary" x="1200" y="820" width="30" height="150"/>
+  <object id="73" type="Boundary" x="1260" y="940" width="70" height="30"/>
+  <object id="74" type="Boundary" x="1140" y="820" width="30" height="90"/>
+  <object id="75" type="Boundary" x="1260" y="1060" width="130" height="30"/>
+  <object id="76" type="Boundary" x="1360" y="1120" width="30" height="30"/>
+  <object id="77" type="Boundary" x="1260" y="1000" width="130" height="30"/>
+  <object id="78" type="Boundary" x="1140" y="1120" width="30" height="30"/>
+  <object id="79" type="Boundary" x="1200" y="1000" width="30" height="150"/>
+  <object id="80" type="Boundary" x="1260" y="1120" width="70" height="30"/>
+  <object id="81" type="Boundary" x="1140" y="1000" width="30" height="90"/>
+  <object id="83" type="Pellet" x="870" y="980" width="10" height="10"/>
+  <object id="84" type="Pellet" x="900" y="980" width="10" height="10"/>
+  <object id="86" type="Pellet" x="960" y="980" width="10" height="10"/>
+  <object id="87" type="Pellet" x="990" y="980" width="10" height="10"/>
+  <object id="88" type="Pellet" x="1020" y="980" width="10" height="10"/>
+  <object id="89" type="Pellet" x="1080" y="980" width="10" height="10"/>
+  <object id="90" type="Pellet" x="1050" y="980" width="10" height="10"/>
+  <object id="91" type="Pellet" x="1142.5" y="980" width="10" height="10"/>
+  <object id="92" type="Pellet" x="1200" y="980" width="10" height="10"/>
+  <object id="93" type="Pellet" x="1110" y="980" width="10" height="10"/>
+  <object id="94" type="Pellet" x="1170" y="980" width="10" height="10"/>
+  <object id="96" type="Pellet" x="1350" y="980" width="10" height="10"/>
+  <object id="97" type="Pellet" x="1320" y="980" width="10" height="10"/>
+  <object id="98" type="Pellet" x="1292.5" y="980" width="10" height="10"/>
+  <object id="99" type="Pellet" x="1260" y="980" width="10" height="10"/>
+  <object id="100" type="Pellet" x="1380" y="980" width="10" height="10"/>
+  <object id="101" type="Pellet" x="1410" y="980" width="10" height="10"/>
+  <object id="112" type="Pellet" x="970.137" y="1100" width="10" height="10" rotation="-270.262"/>
+  <object id="113" type="Pellet" x="970.549" y="919.999" width="10" height="10" rotation="-270.262"/>
+  <object id="114" type="Pellet" x="970" y="1040" width="10" height="10" rotation="-270.262"/>
+  <object id="115" type="Pellet" x="970" y="1010" width="10" height="10" rotation="-270.262"/>
+  <object id="116" type="Pellet" x="970" y="800" width="10" height="10" rotation="-270.262"/>
+  <object id="117" type="Pellet" x="970.274" y="859.999" width="10" height="10" rotation="-270.262"/>
+  <object id="118" type="Pellet" x="970" y="1070" width="10" height="10" rotation="-270.262"/>
+  <object id="119" type="Pellet" x="970" y="950" width="10" height="10" rotation="-270.262"/>
+  <object id="120" type="Pellet" x="970.137" y="830" width="10" height="10" rotation="-270.262"/>
+  <object id="121" type="Pellet" x="970.411" y="889.999" width="10" height="10" rotation="-270.262"/>
+  <object id="122" type="Pellet" x="970.137" y="1160" width="10" height="10" rotation="-270.262"/>
+  <object id="123" type="Pellet" x="970" y="1130" width="10" height="10" rotation="-270.262"/>
+  <object id="137" type="Pellet" x="1250" y="1040" width="10" height="10" rotation="-270.262"/>
+  <object id="138" type="Pellet" x="1250" y="950" width="10" height="10" rotation="-270.262"/>
+  <object id="139" type="Pellet" x="1250.27" y="859.999" width="10" height="10" rotation="-270.262"/>
+  <object id="140" type="Pellet" x="1250" y="1130" width="10" height="10" rotation="-270.262"/>
+  <object id="141" type="Pellet" x="1250.14" y="830" width="10" height="10" rotation="-270.262"/>
+  <object id="142" type="Pellet" x="1250.14" y="1100" width="10" height="10" rotation="-270.262"/>
+  <object id="143" type="Pellet" x="1250.55" y="919.999" width="10" height="10" rotation="-270.262"/>
+  <object id="144" type="Pellet" x="1250" y="1070" width="10" height="10" rotation="-270.262"/>
+  <object id="145" type="Pellet" x="1230" y="980" width="10" height="10"/>
+  <object id="146" type="Pellet" x="1250.14" y="1160" width="10" height="10" rotation="-270.262"/>
+  <object id="147" type="Pellet" x="1250" y="800" width="10" height="10" rotation="-270.262"/>
+  <object id="148" type="Pellet" x="1250.41" y="889.999" width="10" height="10" rotation="-270.262"/>
+  <object id="149" type="Pellet" x="1250" y="1010" width="10" height="10" rotation="-270.262"/>
+  <object id="150" type="Pellet" x="1260" y="800" width="10" height="10"/>
+  <object id="151" type="Pellet" x="1170" y="800" width="10" height="10"/>
+  <object id="152" type="Pellet" x="990" y="800" width="10" height="10"/>
+  <object id="153" type="Pellet" x="1202.5" y="800" width="10" height="10"/>
+  <object id="154" type="Pellet" x="1290" y="800" width="10" height="10"/>
+  <object id="155" type="Pellet" x="1080" y="800" width="10" height="10"/>
+  <object id="156" type="Pellet" x="1052.5" y="800" width="10" height="10"/>
+  <object id="157" type="Pellet" x="1140" y="800" width="10" height="10"/>
+  <object id="158" type="Pellet" x="870" y="800" width="10" height="10"/>
+  <object id="159" type="Pellet" x="1320" y="800" width="10" height="10"/>
+  <object id="160" type="Pellet" x="930" y="800" width="10" height="10"/>
+  <object id="161" type="Pellet" x="1110" y="800" width="10" height="10"/>
+  <object id="163" type="Pellet" x="1020" y="800" width="10" height="10"/>
+  <object id="164" type="Pellet" x="900" y="800" width="10" height="10"/>
+  <object id="167" name="StartingPoint" type="Portal" x="837.5" y="980" width="10" height="10"/>
+ </objectgroup>
+</map>

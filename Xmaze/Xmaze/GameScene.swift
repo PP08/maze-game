@@ -23,7 +23,7 @@ enum BodyType:UInt32 {
 }
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
@@ -42,10 +42,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         
+        
+        if(useTMXFiles == true) {
+            
+            println("setup with tmx")
+            
+            self.enumerateChildNodesWithName("*"){
+                node, stop in
+                
+                node.removeFromParent()
+                
+            }
+            
+            mazeWorld = SKNode()
+            addChild(mazeWorld!)
+            
+            
+        } else {
+            
+            mazeWorld = childNodeWithName("mazeWorld")
+            heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
+        }
+        
+        
+        
         /* Setup your scene here */
         
-        mazeWorld = childNodeWithName("mazeWorld")
-        heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
         
         hero = Hero()
         hero!.position = heroLocation
@@ -78,11 +100,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         )
         
         
-        if(useTMXFiles==true){
-            println("setup with tmx")
-        }else{
-            println("setup with SKS")
+        /*set up based on TMX or SKS*/
+        
+        if(useTMXFiles==false){
+            
             setUpBoundaryFromSKS()
+            
+        } else {
+            
+            parseTMXFileWithName("maze")
         }
         
     }
@@ -187,5 +213,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    func parseTMXFileWithName(name:NSString) {
+        
+        let path:String = NSBundle.mainBundle().pathForResource(name as String, ofType: "tmx")!
+        let data:NSData = NSData(contentsOfFile: path)!
+        let parser:NSXMLParser = NSXMLParser(data: data)
+         
+        parser.delegate = self
+        parser.parse()
+        
+    }
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+        
+        if (elementName == "object") {
+            
+            let type:AnyObject? = attributeDict["type"]
+            println(type)
+        }
+
+    }
     
 }
