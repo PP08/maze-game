@@ -51,7 +51,7 @@ class Hero:SKNode {
         
         setUpAnimation()
         
-        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
+        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1, height: objectSprite!.size.height * 1)
         self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
         
         self.physicsBody!.friction = 0
@@ -137,7 +137,7 @@ class Hero:SKNode {
             atlasTextures.insert (texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true, restore: false)
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 0.5/30, resize: true, restore: false)
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
     
     }

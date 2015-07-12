@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
-        
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         
         if(useTMXFiles == true) {
@@ -234,6 +234,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 let newBoundary:Boundary = Boundary(theDict: attributeDict)
                 mazeWorld!.addChild(newBoundary)
+                
+                
+            } else if (type as? String == "Portal") {
+                
+                let theName:String = attributeDict["name"] as AnyObject? as! String
+                
+                if (theName == "StartingPoint") {
+                    
+                    let theX:String = attributeDict["x"] as AnyObject? as! String
+                    let x:Int = theX.toInt()!
+                    
+                    let theY:String = attributeDict["y"] as AnyObject? as! String
+                    let y:Int = theY.toInt()!
+                    
+                    
+                    hero!.position = CGPoint(x: x, y: y * -1)
+                    heroLocation = hero!.position
+             
+                }
+                
+                
             }
             
             
@@ -241,4 +262,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
 
     }
     
+    
+    override func didSimulatePhysics() {
+        
+        if (heroIsDead == false ) {
+            
+            self.centerOnNode(hero!)
+            
+        }
+    }
+    
+    func centerOnNode(node:SKNode) {
+        
+        let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
+        mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)
+    }
 }

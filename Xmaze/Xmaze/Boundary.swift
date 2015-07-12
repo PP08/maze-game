@@ -40,14 +40,14 @@ class Boundary:SKNode {
         let theY:String = theDict["y"] as AnyObject? as! String
         let y:Int = theY.toInt()!
         
-        let theHeight:String = theDict["height"] as AnyObject? as! String
-        let heigth:Int = theHeight.toInt()!
-        
         let theWidth:String = theDict["width"] as AnyObject? as! String
         let width:Int = theWidth.toInt()!
         
+        let theHeight:String = theDict["height"] as AnyObject? as! String
+        let height:Int = theHeight.toInt()!
+
         let location:CGPoint = CGPoint(x: x, y: y * -1)
-        let size:CGSize = CGSize(width: width, height: heigth)
+        let size:CGSize = CGSize(width: width, height: height)
         
         self.position = CGPoint(x: location.x + (size.width / 2), y: location.y - (size.height / 2))
         
