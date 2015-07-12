@@ -15,7 +15,7 @@ enum BodyType:UInt32 {
     case sensorDown = 8
     case sensorRight = 16
     case sensorLeft = 32
-    case pellet = 64
+    case star = 64
     case enemy = 124
     case boundary2 = 256
     
@@ -29,8 +29,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = true
+    var useTMXFiles:Bool = false
     var heroIsDead:Bool = false
+    var starsAcquired:Int = 0
+    var starsTotal:Int = 0
+    
+    
     
     override func didMoveToView(view: SKView) {
         /* initial properties */
@@ -105,6 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if(useTMXFiles==false){
             
             setUpBoundaryFromSKS()
+            setUpStarsFromSKS()
             
         } else {
             
@@ -132,6 +137,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             }
         }
     }
+    
+    
+    
+    func setUpStarsFromSKS(){
+        
+        mazeWorld!.enumerateChildNodesWithName("star"){
+            node, stop in
+            
+            
+            
+            if let star = node as? SKSpriteNode{
+                
+                let newStar:Star = Star()
+                self.mazeWorld!.addChild(newStar)
+                newStar.position = star.position
+                
+                self.starsTotal++
+                println(self.starsTotal)
+                
+                star.removeFromParent()
+                
+            }
+        }
+    }
+    
+    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
@@ -187,10 +218,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         switch(contactMask){
             
-        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-                println("ran into wall")
-                heroIsDead = true
-                //hero!.position = heroLocation
+        case BodyType.hero.rawValue | BodyType.star.rawValue:
+            
+            if let star = contact.bodyA.node as? Star {
+                
+                
+                star.removeFromParent()
+                starsAcquired++
+                
+            }else if let star = contact.bodyB.node as? Star {
+                
+                
+                star.removeFromParent()
+                
+            }
+            
+            
+            starsAcquired++
+            
+            if (starsAcquired == starsTotal) {
+                
+                println("got all the stars")
+            }
             
         default:
             return

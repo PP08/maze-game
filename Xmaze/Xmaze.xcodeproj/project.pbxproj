@@ -18,7 +18,8 @@
 		F811212C1B507056002D9380 /* hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212B1B507056002D9380 /* hero.swift */; };
 		F811212E1B507075002D9380 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212D1B507075002D9380 /* Boundary.swift */; };
 		F89FC9AD1B51C9660033BEFA /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F89FC9AC1B51C9660033BEFA /* moving.atlas */; };
-		F89FC9BB1B51EECB0033BEFA /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F89FC9BA1B51EECB0033BEFA /* Maze.tmx */; };
+		F89FC9BD1B51EFF50033BEFA /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F89FC9BC1B51EFF50033BEFA /* Maze.tmx */; };
+		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,8 @@
 		F811212B1B507056002D9380 /* hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hero.swift; sourceTree = "<group>"; };
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		F89FC9AC1B51C9660033BEFA /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
-		F89FC9BA1B51EECB0033BEFA /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
+		F89FC9BC1B51EFF50033BEFA /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
+		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +92,14 @@
 			isa = PBXGroup;
 			children = (
 				F811210B1B506FD0002D9380 /* GameScene.swift */,
+				F89FC9BE1B51F5860033BEFA /* Star.swift */,
 				F81121071B506FD0002D9380 /* AppDelegate.swift */,
 				F81121091B506FD0002D9380 /* GameScene.sks */,
 				F811212B1B507056002D9380 /* hero.swift */,
 				F811212D1B507075002D9380 /* Boundary.swift */,
 				F811210D1B506FD0002D9380 /* GameViewController.swift */,
 				F811210F1B506FD0002D9380 /* Main.storyboard */,
-				F89FC9BA1B51EECB0033BEFA /* Maze.tmx */,
+				F89FC9BC1B51EFF50033BEFA /* Maze.tmx */,
 				F81121121B506FD0002D9380 /* Images.xcassets */,
 				F81121141B506FD0002D9380 /* LaunchScreen.xib */,
 				F89FC9AB1B51C4320033BEFA /* TextureAtlases */,
@@ -220,7 +223,7 @@
 			files = (
 				F81121161B506FD0002D9380 /* LaunchScreen.xib in Resources */,
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
-				F89FC9BB1B51EECB0033BEFA /* Maze.tmx in Resources */,
+				F89FC9BD1B51EFF50033BEFA /* Maze.tmx in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F89FC9AD1B51C9660033BEFA /* moving.atlas in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
@@ -244,6 +247,7 @@
 				F811210C1B506FD0002D9380 /* GameScene.swift in Sources */,
 				F811210E1B506FD0002D9380 /* GameViewController.swift in Sources */,
 				F81121081B506FD0002D9380 /* AppDelegate.swift in Sources */,
+				F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */,
 				F811212C1B507056002D9380 /* hero.swift in Sources */,
 				F811212E1B507075002D9380 /* Boundary.swift in Sources */,
 			);

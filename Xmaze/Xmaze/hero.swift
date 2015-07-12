@@ -64,7 +64,7 @@ class Hero:SKNode {
         
         self.physicsBody!.categoryBitMask = BodyType.hero.rawValue
         //self.physicsBody!.collisionBitMask = 0
-        self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue
+        self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.star.rawValue
         
     }
     
