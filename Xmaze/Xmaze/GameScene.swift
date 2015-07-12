@@ -221,6 +221,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         switch(contactMask){
             
+        case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
+            
+            hero!.upSensorContactStart()
+            
+        case BodyType.boundary.rawValue | BodyType.sensorDown.rawValue:
+            
+            hero!.downSensorContactStart()
+        case BodyType.boundary.rawValue | BodyType.sensorLeft.rawValue:
+            
+            hero!.leftSensorContactStart()
+        case BodyType.boundary.rawValue | BodyType.sensorRight.rawValue:
+            
+            hero!.rightSensorContactStart()
+            
         case BodyType.hero.rawValue | BodyType.star.rawValue:
             
             if let star = contact.bodyA.node as? Star {
@@ -255,8 +269,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         switch(contactMask){
             
-        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-            println("is not touching the wall")
+        case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
+            
+            hero!.upSensorContactEnd()
+            
+        case BodyType.boundary.rawValue | BodyType.sensorDown.rawValue:
+            
+            hero!.downSensorContactEnd()
+        case BodyType.boundary.rawValue | BodyType.sensorLeft.rawValue:
+            
+            hero!.leftSensorContactEnd()
+        case BodyType.boundary.rawValue | BodyType.sensorRight.rawValue:
+            
+            hero!.rightSensorContactEnd()
             
             
         default:
