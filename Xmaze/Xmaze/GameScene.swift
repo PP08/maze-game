@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = false
+    var useTMXFiles:Bool = true
     var heroIsDead:Bool = false
     var starsAcquired:Int = 0
     var starsTotal:Int = 0
@@ -190,6 +190,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
     }
     
+    // MARK: swiped gesture
     
     func swipedRight(sender: UISwipeGestureRecognizer){
         
@@ -211,6 +212,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         hero!.goDown()
     }
     
+    
+    // MARK: contact related code
     
     func didBeginContact(contact: SKPhysicsContact) {
         
@@ -263,6 +266,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
     
     
+    // MARK: parse TMX file
+    
     func parseTMXFileWithName(name:NSString) {
         
         let path:String = NSBundle.mainBundle().pathForResource(name as String, ofType: "tmx")!
@@ -285,7 +290,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 mazeWorld!.addChild(newBoundary)
                 
                 
-            } else if (type as? String == "Portal") {
+            }else if (type as? String == "Star") {
+                
+                let newStar:Star = Star(fromTMXFileWithDict: attributeDict)
+                mazeWorld!.addChild(newStar)
+                
+                starsTotal++
+                
+            }
+                
+            else if (type as? String == "Portal") {
                 
                 let theName:String = attributeDict["name"] as AnyObject? as! String
                 

@@ -29,7 +29,7 @@ class Hero:SKNode {
     /* properties*/
     
     var currentSpeed:Float = 5
-    var currentDirection = Direction.Right
+    var currentDirection = Direction.None
     var desiredDirection = DesiredDirection.None
     
     var movingAnimation:SKAction?

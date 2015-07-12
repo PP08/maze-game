@@ -21,12 +21,33 @@ class Star:SKNode {
     override init() {
         
         super.init()
-        starSprite = SKSpriteNode(imageNamed: "star")
+        starSprite = SKSpriteNode(imageNamed: "Star")
         addChild(starSprite!)
         
         createPhysicsBody()
         
     }
+    
+    
+    init(fromTMXFileWithDict theDict:Dictionary<NSObject, AnyObject> ) {
+        super.init()
+        
+        let theX:String = theDict["x"] as AnyObject? as! String
+        let x:Int = theX.toInt()!
+        
+        let theY:String = theDict["y"] as AnyObject? as! String
+        let y:Int = theY.toInt()!
+        
+        let location:CGPoint = CGPoint(x: x, y: y * -1)
+        
+        starSprite = SKSpriteNode(imageNamed: "Star")
+        addChild(starSprite!)
+        
+        self.position = CGPoint(x: location.x + (starSprite!.size.width / 2), y: location.y - (starSprite!.size.height / 2))
+        
+        createPhysicsBody()
+    }
+    
     
     func createPhysicsBody() {
         
