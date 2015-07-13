@@ -28,7 +28,7 @@ class Hero:SKNode {
     
     /* properties*/
     
-    var currentSpeed:Float = 10
+    var currentSpeed:Float = 5
     var currentDirection = Direction.Right
     var desiredDirection = DesiredDirection.None
     
@@ -64,7 +64,7 @@ class Hero:SKNode {
         
         setUpAnimation()
         
-        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.1, height: objectSprite!.size.height * 1.1)
+        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.15, height: objectSprite!.size.height * 1.15)
         self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
         
         self.physicsBody!.friction = 0
@@ -251,7 +251,7 @@ class Hero:SKNode {
             atlasTextures.insert (texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 2/30, resize: true, restore: false)
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1/30, resize: true, restore: false)
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
     
     }

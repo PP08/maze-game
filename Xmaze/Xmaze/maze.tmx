@@ -31,7 +31,7 @@
   <object id="34" type="Boundary" x="850" y="770" width="200" height="50"/>
   <object id="36" type="Boundary" x="750" y="570" width="50" height="150"/>
   <object id="38" type="Boundary" x="1200" y="120" width="50" height="400"/>
-  <object id="39" type="Boundary" x="1200" y="570" width="50" height="340"/>
+  <object id="39" type="Boundary" x="1200" y="570" width="50" height="350"/>
   <object id="40" type="Star" x="320" y="540" width="10" height="10"/>
   <object id="42" type="Star" x="370" y="540" width="10" height="10"/>
   <object id="43" type="Star" x="420" y="540" width="10" height="10"/>

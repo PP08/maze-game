@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        view.showsPhysics = true
+        view.showsPhysics = false
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
