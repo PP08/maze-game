@@ -235,6 +235,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if(heroIsDead == false){
             
             hero!.update()
+            
+            
+            mazeWorld!.enumerateChildNodesWithName("enemy*") {
+                node, stop in
+                
+                if let enemy = node as? Enemy {
+                    
+                    enemy.update()
+                }
+                
+            }
+            
  
         }else{
             
@@ -452,5 +464,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
         mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)
+    }
+    
+    //MARK: ENEMY STUFF
+    
+    func tellEnemiesWhereHeroIs () {
+        
+        
+        
+        let enemyAction:SKAction = SKAction.waitForDuration(5)
+        
+        self.runAction(enemyAction, completion: {
+            
+            self.tellEnemiesWhereHeroIs()
+        })
+        
+        
+        
+        mazeWorld!.enumerateChildNodesWithName("enemy*") {
+            node, stop in
+        
+            if let enemy = node as? Enemy {
+            
+                if (self.hero!.position.x < enemy.position.x && self.hero!.position.y < enemy.position.y) {
+                    
+                    // southwest
+                    
+                    enemy.heroLocationIs = .Southwest
+                    
+                } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y < enemy.position.y) {
+                    
+                    // southwest
+                    
+                    enemy.heroLocationIs = .Southeast
+                    
+                } else if (self.hero!.position.x < enemy.position.x && self.hero!.position.y > enemy.position.y) {
+                    
+                    // southwest
+                    
+                    enemy.heroLocationIs = .Northwest
+                    
+                } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y > enemy.position.y) {
+                    
+                    // southwest
+                    
+                    enemy.heroLocationIs = .Northeast
+                    
+                }
+            
+            }
+        }
+    
     }
 }

@@ -255,7 +255,7 @@
   <object id="306" type="Star" x="270" y="290" width="10" height="10"/>
   <object id="308" type="Edge" x="250" y="70" width="1050" height="900"/>
   <object id="310" type="Star" x="320" y="290" width="10" height="10"/>
-  <object id="311" name="enemy1" type="Enemy" x="1130" y="230" width="20" height="20"/>
-  <object id="312" name="enemy2" type="Enemy" x="1080" y="80" width="20" height="20"/>
+  <object id="311" name="enemy1" type="Enemy" x="620" y="390" width="20" height="20"/>
+  <object id="312" name="enemy2" type="Enemy" x="720" y="440" width="20" height="20"/>
  </objectgroup>
 </map>
