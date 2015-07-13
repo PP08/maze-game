@@ -28,8 +28,8 @@ class Hero:SKNode {
     
     /* properties*/
     
-    var currentSpeed:Float = 5
-    var currentDirection = Direction.None
+    var currentSpeed:Float = 10
+    var currentDirection = Direction.Right
     var desiredDirection = DesiredDirection.None
     
     var movingAnimation:SKAction?
@@ -64,7 +64,7 @@ class Hero:SKNode {
         
         setUpAnimation()
         
-        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
+        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.1, height: objectSprite!.size.height * 1.1)
         self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
         
         self.physicsBody!.friction = 0
@@ -108,16 +108,16 @@ class Hero:SKNode {
             
         case .Right:
             self.position = CGPoint(x: self.position.x + CGFloat(currentSpeed), y: self.position.y)
-            objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
         case .Left:
             self.position = CGPoint(x: self.position.x - CGFloat(currentSpeed), y: self.position.y)
-            objectSprite!.zRotation = CGFloat( degreesToRadians(180) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(-90) )
         case .Up:
             self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(currentSpeed))
-            objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(180) )
         case .Down:
             self.position = CGPoint(x: self.position.x, y: self.position.y - CGFloat(currentSpeed))
-            objectSprite!.zRotation = CGFloat( degreesToRadians(-90) )
+            objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
         case .None:
             self.position = CGPoint(x: self.position.x, y: self.position.y)
             
@@ -240,7 +240,7 @@ class Hero:SKNode {
     func setUpAnimation() {
         
         let atlast = SKTextureAtlas(named: "moving")
-        let array:[String] = ["moving0001", "moving0002", "moving0003", "moving0004", "moving0005", "moving0006", "moving0007", "moving0008", "moving0009", "moving00010", "moving0009", "moving0008", "moving0007", "moving0006", "moving0005", "moving0004", "moving0003", "moving0002" ]
+        let array:[String] = ["moving0001", "moving0002", "moving0003", "moving0004", "moving0003", "moving0002" ]
         
         var atlasTextures:[SKTexture] = []
         
@@ -251,7 +251,7 @@ class Hero:SKNode {
             atlasTextures.insert (texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 0.5/30, resize: true, restore: false)
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 2/30, resize: true, restore: false)
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
     
     }
@@ -276,10 +276,10 @@ class Hero:SKNode {
         
         if (whileTravellingUpOrDown == true) {
             
-            size = CGSize(width: 64, height: 18)
+            size = CGSize(width: 32, height: 9)
         } else {
             
-            size = CGSize(width: 64.8, height: 72)
+            size = CGSize(width: 32.4, height: 36)
         }
         
         nodeUp!.physicsBody = nil // get rid of any existing physics body
@@ -299,10 +299,10 @@ class Hero:SKNode {
         
         if (whileTravellingUpOrDown == true) {
             
-            size = CGSize(width: 64, height: 18)
+            size = CGSize(width: 32, height: 9)
         } else {
             
-            size = CGSize(width: 64.8, height: 72)
+            size = CGSize(width: 32.4, height: 36)
         }
         
         nodeDown!.physicsBody = nil // get rid of any existing physics body
@@ -324,10 +324,10 @@ class Hero:SKNode {
         
         if (whileTravellingLeftOrRight == true) {
             
-            size = CGSize(width: 64, height: 18)
+            size = CGSize(width: 9, height: 32)
         } else {
             
-            size = CGSize(width: 64.8, height: 72)
+            size = CGSize(width: 36, height: 32.4)
         }
         
         nodeLeft!.physicsBody = nil // get rid of any existing physics body
@@ -348,10 +348,10 @@ class Hero:SKNode {
         
         if (whileTravellingLeftOrRight == true) {
             
-            size = CGSize(width: 64, height: 18)
+            size = CGSize(width: 9, height: 32)
         } else {
             
-            size = CGSize(width: 64.8, height: 72)
+            size = CGSize(width: 36, height: 32.4)
         }
         
         nodeRight!.physicsBody = nil // get rid of any existing physics body
