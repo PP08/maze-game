@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        view.showsPhysics = true
+        view.showsPhysics = false
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -109,6 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if(useTMXFiles==false){
             
             setUpBoundaryFromSKS()
+            setUpEdgeFromSKS()
             setUpStarsFromSKS()
             
         } else {
@@ -130,13 +131,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 println("found boundary")
                 let rect:CGRect = CGRect(origin: boundary.position, size: boundary.size)
-                let newBoundary:Boundary = Boundary(fromSKSwithRect: rect)
+                let newBoundary:Boundary = Boundary(fromSKSwithRect: rect, isEdge:false)
                 self.mazeWorld!.addChild(newBoundary)
                 newBoundary.position = boundary.position
                 boundary.removeFromParent()
             }
         }
+        
     }
+    
+    
+    
+    func setUpEdgeFromSKS(){
+        
+        mazeWorld!.enumerateChildNodesWithName("edge"){
+            node, stop in
+            
+            
+            
+            if let edge = node as? SKSpriteNode{
+                
+                println("found boundary")
+                let rect:CGRect = CGRect(origin: edge.position, size: edge.size)
+                let newEdge:Boundary = Boundary(fromSKSwithRect: rect, isEdge:true)
+                self.mazeWorld!.addChild(newEdge)
+                newEdge.position = edge.position
+                
+                edge.removeFromParent()
+            }
+        }
+        
+    }
+
     
     
     
@@ -310,12 +336,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             let type:AnyObject? = attributeDict["type"]
             if (type as? String == "Boundary") {
-                
-                let newBoundary:Boundary = Boundary(theDict: attributeDict)
+                var tmxDict = attributeDict
+                tmxDict.updateValue("false", forKey: "isEdge")
+                let newBoundary:Boundary = Boundary(theDict: tmxDict)
                 mazeWorld!.addChild(newBoundary)
                 
                 
-            }else if (type as? String == "Star") {
+            } else if (type as? String == "Edge") {
+                
+                var tmxDict = attributeDict
+                tmxDict.updateValue("true", forKey: "isEdge")
+                let newBoundary:Boundary = Boundary(theDict: tmxDict)
+                mazeWorld!.addChild(newBoundary)
+                
+                
+            }
+            
+            
+            else if (type as? String == "Star") {
                 
                 let newStar:Star = Star(fromTMXFileWithDict: attributeDict)
                 mazeWorld!.addChild(newStar)

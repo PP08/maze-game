@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="30" tileheight="30" nextobjectid="68">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="30" tileheight="30" nextobjectid="69">
  <objectgroup name="Object Layer 1">
-  <object id="1" name="StartingPoint" type="Portal" x="930" y="2070" width="30" height="30"/>
+  <object id="1" name="StartingPoint" type="Portal" x="990" y="2070" width="30" height="30"/>
   <object id="4" type="Boundary" x="1080" y="1290" width="90" height="180"/>
   <object id="5" type="Boundary" x="1080" y="1590" width="90" height="180"/>
   <object id="6" type="Boundary" x="1290" y="1290" width="90" height="180"/>
@@ -48,7 +48,6 @@
   <object id="55" type="Star" x="1200" y="1830" width="30" height="30"/>
   <object id="56" type="Star" x="1110" y="2070" width="30" height="30"/>
   <object id="57" type="Star" x="1200" y="2070" width="30" height="30"/>
-  <object id="58" type="Star" x="1020" y="2070" width="30" height="30"/>
   <object id="59" type="Star" x="1080" y="2370" width="30" height="30"/>
   <object id="60" type="Star" x="1170" y="2370" width="30" height="30"/>
   <object id="61" type="Star" x="990" y="2370" width="30" height="30"/>
@@ -58,5 +57,6 @@
   <object id="65" type="Star" x="1800" y="2070" width="30" height="30"/>
   <object id="66" type="Star" x="1890" y="2070" width="30" height="30"/>
   <object id="67" type="Star" x="1710" y="2070" width="30" height="30"/>
+  <object id="68" type="Edge" x="900" y="1170" width="2070" height="1800"/>
  </objectgroup>
 </map>

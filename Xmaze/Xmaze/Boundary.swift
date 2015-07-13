@@ -20,19 +20,32 @@ class Boundary:SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init (fromSKSwithRect rect:CGRect){
+    init (fromSKSwithRect rect:CGRect, isEdge:Bool){
         super.init()
         
         let newLocation = CGPoint(x: -(rect.size.width / 2), y: -(rect.size.height / 2) )
         let newRect:CGRect = CGRect (origin: newLocation, size: rect.size)
         
         
-        createBoundary(newRect)
+        createBoundary(newRect, createAsEdge: isEdge)
     }
     
     init (theDict:Dictionary<NSObject, AnyObject> ) {
         
         super.init()
+        
+        let isEdgeAsString:String = theDict ["isEdge"] as AnyObject? as! String
+        var isEdge:Bool
+        
+        if(isEdgeAsString == "true") {
+            
+            isEdge = true
+        } else {
+            
+            isEdge = false
+        }
+        
+        
         
         let theX:String = theDict["x"] as AnyObject? as! String
         let x:Int = theX.toInt()!
@@ -53,13 +66,13 @@ class Boundary:SKNode {
         
         let rect:CGRect = CGRectMake( -(size.width / 2), -(size.height / 2), size.width, size.height )
         
-        createBoundary(rect)
+        createBoundary(rect, createAsEdge: isEdge)
         
         
     }
    
     
-    func createBoundary(rect:CGRect){
+    func createBoundary(rect:CGRect, createAsEdge:Bool){
         let shape = SKShapeNode(rect: rect, cornerRadius: 19)
         shape.fillColor = SKColor.clearColor()
         shape.strokeColor = SKColor.whiteColor()
@@ -67,7 +80,15 @@ class Boundary:SKNode {
         
         addChild(shape)
         
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
+        if (createAsEdge == false) {
+            
+            self.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
+        } else {
+            
+            self.physicsBody = SKPhysicsBody(edgeLoopFromRect: rect)
+        }
+        
+      
         self.physicsBody!.dynamic = false
         self.physicsBody!.categoryBitMask = BodyType.boundary.rawValue
         self.physicsBody!.friction = 0
