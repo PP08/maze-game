@@ -271,7 +271,7 @@ class Enemy: SKNode {
     
     func bumped() {
         
-        /*switch(currentDirection){
+        switch(currentDirection){
             
         case .Up:
             currentDirection = .Down
@@ -281,9 +281,8 @@ class Enemy: SKNode {
             currentDirection = .Right
         case .Right:
             currentDirection = .Left
-        }*/
+        }
         
-        println("booom!!")
         
     }
     

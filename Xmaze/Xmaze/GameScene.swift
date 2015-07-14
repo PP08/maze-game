@@ -16,7 +16,7 @@ enum BodyType:UInt32 {
     case sensorRight = 16
     case sensorLeft = 32
     case star = 64
-    case enemy = 124
+    case enemy = 128
     case boundary2 = 256
     
     
@@ -310,15 +310,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         case BodyType.enemy.rawValue | BodyType.enemy.rawValue:
             
-            if let enemy = contact.bodyA.node as? Enemy {
+            if let enemy1 = contact.bodyA.node as? Enemy {
                 
                 
-                enemy.bumped()
+                enemy1.bumped()
                 
-            }else if let enemy = contact.bodyB.node as? Enemy {
+            }else if let enemy2 = contact.bodyB.node as? Enemy {
                 
                 
-                enemy.bumped()
+                enemy2.bumped()
                 
             }
             
