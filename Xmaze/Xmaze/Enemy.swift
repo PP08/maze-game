@@ -29,6 +29,8 @@ class Enemy: SKNode {
     var heroLocationIs = HeroIs.Southwest
     var currentDirection = EnemyDirection.Up
     var enemySpeed:Float = 5
+    var isStuck:Bool = false
+    
     
     var previousLocation1:CGPoint = CGPointZero
     var previousLocation2:CGPoint = CGPoint(x: 1, y: 1)
@@ -82,7 +84,7 @@ class Enemy: SKNode {
         
         self.physicsBody?.categoryBitMask = BodyType.enemy.rawValue
         
-        self.physicsBody?.collisionBitMask = BodyType.boundary.rawValue | BodyType.boundary2.rawValue
+        self.physicsBody?.collisionBitMask = BodyType.boundary.rawValue | BodyType.boundary2.rawValue | BodyType.enemy.rawValue
         self.physicsBody?.contactTestBitMask = BodyType.hero.rawValue | BodyType.enemy.rawValue
         self.zPosition = 90
 
@@ -91,7 +93,54 @@ class Enemy: SKNode {
     
     func decideDirection () {
         
-        println("stuck")
+        let previousDirection = currentDirection
+        
+        switch (heroLocationIs) {
+            
+            case .Southwest:
+                if(previousDirection == .Down) {
+                
+                    currentDirection = .Left
+           
+                } else {
+                
+                    currentDirection = .Down
+                
+                }
+            case .Southeast:
+                if(previousDirection == .Down) {
+                
+                    currentDirection = .Right
+                
+                } else {
+                
+                    currentDirection = .Down
+                
+                }
+            case .Northeast:
+                if(previousDirection == .Up) {
+                    
+                    currentDirection = .Right
+                    
+                } else {
+                    
+                    currentDirection = .Up
+                    
+                }
+            
+                    
+                case .Northwest:
+                    if(previousDirection == .Up) {
+                        
+                        currentDirection = .Left
+                        
+                    } else {
+                        
+                        currentDirection = .Up
+            
+                    }
+        }
+   
     }
     
     func update() {
@@ -102,12 +151,36 @@ class Enemy: SKNode {
         if ( Int(previousLocation2.y) == Int(previousLocation1.y) && Int(previousLocation2.x) == Int(previousLocation1.x)) {
             
             /* stuck */
-            
+            isStuck = true
             decideDirection ()
             
         }
         
+        let superDice = arc4random_uniform(1000)
         
+        if (superDice == 0) {
+            
+            println("randomly changing direction")
+            
+            let diceRoll = arc4random_uniform(4)
+            
+            switch (diceRoll) {
+                
+            case 0:
+                currentDirection = .Up
+            
+            case 1:
+            currentDirection = .Left
+                
+            case 2:
+                currentDirection = .Right
+            
+            default:
+                currentDirection = .Down
+            
+            }
+        
+        }
         /* save a location variable prior to moving */
         
         previousLocation2 = previousLocation1
@@ -120,13 +193,13 @@ class Enemy: SKNode {
         
         if (currentDirection == .Up) {
             
-            self.position = CGPoint (x: self.position.x, y: self.position.y - CGFloat(enemySpeed))
+            self.position = CGPoint (x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
             
-            if (heroLocationIs == .Southeast) {
+            if (heroLocationIs == .Northwest) {
                 
                 self.position = CGPoint (x: self.position.x + CGFloat(enemySpeed), y: self.position.y)
                 
-            } else {
+            } else if (heroLocationIs == .Northwest) {
                 
                 //assume the northwes
                 self.position = CGPoint (x: self.position.x - CGFloat(enemySpeed), y: self.position.y)
@@ -143,7 +216,7 @@ class Enemy: SKNode {
                 
                 self.position = CGPoint (x: self.position.x + CGFloat(enemySpeed), y: self.position.y)
                 
-            } else {
+            } else if (heroLocationIs == .Southwest){
                 
                 //assume the northwes
                 self.position = CGPoint (x: self.position.x - CGFloat(enemySpeed), y: self.position.y)
@@ -152,15 +225,15 @@ class Enemy: SKNode {
             
         }
         
-        else if (currentDirection == .Left) {
+        else if (currentDirection == .Right) {
             
-            self.position = CGPoint (x: self.position.x - CGFloat(enemySpeed), y: self.position.y)
+            self.position = CGPoint (x: self.position.x + CGFloat(enemySpeed), y: self.position.y)
             
             if (heroLocationIs == .Southeast) {
                 
                 self.position = CGPoint (x: self.position.x, y: self.position.y - CGFloat(enemySpeed))
                 
-            } else {
+            } else if (heroLocationIs == .Northeast){
                 
                 //assume the northwes
                 self.position = CGPoint (x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
@@ -170,15 +243,15 @@ class Enemy: SKNode {
         }
         
         
-        else if (currentDirection == .Right) {
+        else if (currentDirection == .Left) {
             
-            self.position = CGPoint (x: self.position.x + CGFloat(enemySpeed), y: self.position.y)
+            self.position = CGPoint (x: self.position.x - CGFloat(enemySpeed), y: self.position.y)
             
             if (heroLocationIs == .Southwest) {
                 
                 self.position = CGPoint (x: self.position.x, y: self.position.y - CGFloat(enemySpeed))
                 
-            } else {
+            } else if (heroLocationIs == .Northwest){
                 
                 //assume the northwes
                 self.position = CGPoint (x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
@@ -195,5 +268,23 @@ class Enemy: SKNode {
         
     }
     
+    
+    func bumped() {
+        
+        /*switch(currentDirection){
+            
+        case .Up:
+            currentDirection = .Down
+        case .Down:
+            currentDirection = .Up
+        case .Left:
+            currentDirection = .Right
+        case .Right:
+            currentDirection = .Left
+        }*/
+        
+        println("booom!!")
+        
+    }
     
 }

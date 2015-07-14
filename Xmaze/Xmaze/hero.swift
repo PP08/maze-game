@@ -144,6 +144,7 @@ class Hero:SKNode {
             runAnimation()
             
             currentDirection = .Up
+            desiredDirection = .None
             downBlocked = false
             
             self.physicsBody?.dynamic = true
@@ -168,7 +169,7 @@ class Hero:SKNode {
         
             runAnimation()
             currentDirection = .Down
-            
+            desiredDirection = .None
             upBlocked = false
             
             self.physicsBody?.dynamic = true
@@ -194,7 +195,7 @@ class Hero:SKNode {
         
             runAnimation()
             currentDirection = .Right
-            
+            desiredDirection = .None
             
             leftBlocked = false
             
@@ -222,7 +223,7 @@ class Hero:SKNode {
             
             runAnimation()
             currentDirection = .Left
-            
+            desiredDirection = .None
             rightBlocked = false
             
             self.physicsBody?.dynamic = true

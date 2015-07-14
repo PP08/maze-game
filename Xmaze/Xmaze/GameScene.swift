@@ -118,6 +118,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             parseTMXFileWithName("Maze")
         }
         
+        
+        tellEnemiesWhereHeroIs()
+        
+        
     }
     
     
@@ -242,6 +246,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 if let enemy = node as? Enemy {
                     
+                    if (enemy.isStuck == true) {
+                        
+                        enemy.heroLocationIs = self.reTurnTheDirection(enemy)
+                        enemy.decideDirection()
+                        enemy.isStuck = false
+                    }
+                    
+                    
                     enemy.update()
                 }
                 
@@ -249,9 +261,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
  
         }else{
+            // hero is dead
             
+            resetEnemies()
+            hero?.rightBlocked = false
             hero!.position = heroLocation
             heroIsDead = false
+            hero!.currentDirection = .Right
+            hero!.desiredDirection = .None
+            hero!.goRight()
+            
+            hero!.runAnimation()
         }
         
         
@@ -287,6 +307,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         switch(contactMask){
+            
+        case BodyType.enemy.rawValue | BodyType.enemy.rawValue:
+            
+            if let enemy = contact.bodyA.node as? Enemy {
+                
+                
+                enemy.bumped()
+                
+            }else if let enemy = contact.bodyB.node as? Enemy {
+                
+                
+                enemy.bumped()
+                
+            }
+            
+        case BodyType.hero.rawValue | BodyType.enemy.rawValue:
+            
+            reLoadLevel()
             
         case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
             
@@ -486,34 +524,65 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
             if let enemy = node as? Enemy {
             
-                if (self.hero!.position.x < enemy.position.x && self.hero!.position.y < enemy.position.y) {
-                    
-                    // southwest
-                    
-                    enemy.heroLocationIs = .Southwest
-                    
-                } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y < enemy.position.y) {
-                    
-                    // southwest
-                    
-                    enemy.heroLocationIs = .Southeast
-                    
-                } else if (self.hero!.position.x < enemy.position.x && self.hero!.position.y > enemy.position.y) {
-                    
-                    // southwest
-                    
-                    enemy.heroLocationIs = .Northwest
-                    
-                } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y > enemy.position.y) {
-                    
-                    // southwest
-                    
-                    enemy.heroLocationIs = .Northeast
-                    
-                }
+                enemy.heroLocationIs = self.reTurnTheDirection(enemy)
             
             }
         }
     
     }
+    
+    
+    func reTurnTheDirection(enemy:Enemy) -> HeroIs {
+        
+        if (self.hero!.position.x < enemy.position.x && self.hero!.position.y < enemy.position.y) {
+            
+            // southwest
+            
+            return HeroIs.Southwest
+            
+        } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y < enemy.position.y) {
+            
+            // southwest
+            
+            return HeroIs.Southeast
+            
+        } else if (self.hero!.position.x < enemy.position.x && self.hero!.position.y > enemy.position.y) {
+            
+            // southwest
+            
+            return HeroIs.Northwest
+            
+        } else if (self.hero!.position.x > enemy.position.x && self.hero!.position.y > enemy.position.y) {
+            
+            // southwest
+            
+            return HeroIs.Northeast
+            
+        } else {
+            
+            return HeroIs.Northeast
+        }
+        
+    }
+    
+    
+    // MARK: reload level
+    
+    func reLoadLevel() {
+        
+        heroIsDead = true
+        
+    }
+    
+    
+    func resetEnemies() {
+        
+        for (name, location) in enemyDictionnary {
+            
+            mazeWorld!.childNodeWithName(name)?.position = location
+            
+        }
+        
+    }
+    
 }
