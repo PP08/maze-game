@@ -51,20 +51,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        let Physics:Bool = gameDict["ShowPhysics"] as AnyObject? as! Bool? != false
         
-        view.showsPhysics = Physics
+        view.showsPhysics = (gameDict.valueForKey("ShowPhysics") as? Bool)!
     
+        let level = gameDict.valueForKey("Gravity") as? String
         
-        let gravity:Bool = gameDict["Gravity"] as AnyObject? as! String? == nil
         
-        
-        if ( gravity) {
+        if ( gameDict.valueForKey("Gravity") as? String != nil) {
             
             println("has gravity from property list")
-            println(ngravity)
-            
-            let newGravity:CGPoint = CGPointFromString(gameDict["Gravity"] as AnyObject? as! String? )
+            let newGravity:CGPoint = CGPointFromString(gameDict.valueForKey("Gravity") as? String)
             physicsWorld.gravity = CGVector(dx: newGravity.x, dy: newGravity.y)
             
             

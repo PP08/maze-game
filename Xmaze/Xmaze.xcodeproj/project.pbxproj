@@ -97,12 +97,12 @@
 		F81121041B506FD0002D9380 /* Xmaze */ = {
 			isa = PBXGroup;
 			children = (
-				F89043C91B5717D700ACF657 /* GameData.plist */,
 				F811210B1B506FD0002D9380 /* GameScene.swift */,
 				F89FC9BE1B51F5860033BEFA /* Star.swift */,
 				F81121071B506FD0002D9380 /* AppDelegate.swift */,
 				F81121091B506FD0002D9380 /* GameScene.sks */,
 				F811212B1B507056002D9380 /* hero.swift */,
+				F89043C91B5717D700ACF657 /* GameData.plist */,
 				F811212D1B507075002D9380 /* Boundary.swift */,
 				F847A8F41B544680004D5156 /* Enemy.swift */,
 				F89043CB1B572D5800ACF657 /* GameData.swift */,
