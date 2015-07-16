@@ -30,7 +30,7 @@ class Boundary:SKNode {
         createBoundary(newRect, createAsEdge: isEdge)
     }
     
-    init (theDict:Dictionary<NSObject, AnyObject> ) {
+    init (theDict:[NSObject: AnyObject]) {
         
         super.init()
         

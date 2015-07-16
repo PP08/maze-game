@@ -37,10 +37,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var enemyDictionnary:[String : CGPoint] = [:]
     
     override func didMoveToView(view: SKView) {
+        
+        
+        /* parse Property list*/
+        
+        
+        let path = NSBundle.mainBundle().pathForResource("GameData", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)!
+        let heroDict:AnyObject = dict.objectForKey("HeroSettings")!
+        
+        
+        
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        view.showsPhysics = false
+        view.showsPhysics = true
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -73,7 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* Setup your scene here */
         
         
-        hero = Hero()
+        hero = Hero(theDict: heroDict as! Dictionary)
         hero!.position = heroLocation
         mazeWorld!.addChild(hero!)
         hero!.currentSpeed = currentSpeed //wil get replaced later on per level basic

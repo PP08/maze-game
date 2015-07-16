@@ -20,6 +20,7 @@
 		F847A8F51B544680004D5156 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847A8F41B544680004D5156 /* Enemy.swift */; };
 		F84B0CC91B5439ED00FEB9F3 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F84B0CC81B5439ED00FEB9F3 /* moving.atlas */; };
 		F870DF791B5463D40006BBFF /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F870DF781B5463D40006BBFF /* Maze.tmx */; };
+		F89043CA1B5717D700ACF657 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89043C91B5717D700ACF657 /* GameData.plist */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F84B0CC81B5439ED00FEB9F3 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 		F870DF781B5463D40006BBFF /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
+		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 		F81121041B506FD0002D9380 /* Xmaze */ = {
 			isa = PBXGroup;
 			children = (
+				F89043C91B5717D700ACF657 /* GameData.plist */,
 				F811210B1B506FD0002D9380 /* GameScene.swift */,
 				F89FC9BE1B51F5860033BEFA /* Star.swift */,
 				F81121071B506FD0002D9380 /* AppDelegate.swift */,
@@ -228,6 +231,7 @@
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
 				F870DF791B5463D40006BBFF /* Maze.tmx in Resources */,
 				F84B0CC91B5439ED00FEB9F3 /* moving.atlas in Resources */,
+				F89043CA1B5717D700ACF657 /* GameData.plist in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
 			);
