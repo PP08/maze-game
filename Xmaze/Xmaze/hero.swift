@@ -56,7 +56,7 @@ class Hero:SKNode {
     init (theDict:[String: AnyObject]){
         
         super.init()
-        println(theDict)
+       //println(theDict)
             
         let image:String = theDict["HeroImage"] as AnyObject? as! String
         
@@ -80,9 +80,6 @@ class Hero:SKNode {
             runAnimation()
                 
         }
-        
-        
-        
         
         let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.15, height: objectSprite!.size.height * 1.15)
             

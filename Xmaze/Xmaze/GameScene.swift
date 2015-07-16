@@ -26,6 +26,7 @@ enum BodyType:UInt32 {
 class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var currentSpeed:Float = 5
+    var enemySpeed:Float = 4
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
@@ -35,6 +36,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var starsTotal:Int = 0
     var enemyCount:Int = 0
     var enemyDictionnary:[String : CGPoint] = [:]
+    
+    var currentTMXFile:String?
+    var nextSKSFile:String?
+    
+    var bgImage:String?
+    var enemyLogic:Double = 5
     
     override func didMoveToView(view: SKView) {
         
@@ -46,7 +53,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         let dict = NSDictionary(contentsOfFile: path!)!
         let heroDict:AnyObject = dict.objectForKey("HeroSettings")!
         let gameDict:AnyObject = dict.objectForKey("GameSettings")!
+        let levelArray:AnyObject = dict.objectForKey("LevelSettings")!
         
+        
+        if let levelNSArray:NSArray = levelArray as? NSArray {
+            
+            
+            println(levelNSArray)
+            
+            var levelDict:AnyObject = levelNSArray[currentLevel]
+            
+            if let tmxFile = levelDict.valueForKey("TMXFile") as? String {
+                
+                
+                currentTMXFile = tmxFile
+                println("specified a TMX file for this level")
+                
+            }
+            if let sksFile = levelDict.valueForKey("NextSKSFile") as? String {
+
+                nextSKSFile = sksFile
+                println("specified a next SKS file if this level is passed")
+                
+            }
+            if let speed = levelDict.valueForKey("Speed") as? Float {
+                
+                currentSpeed = speed
+                println(currentSpeed)
+                
+            }
+            
+            if let espeed = levelDict.valueForKey("EnemySpeed") as? Float {
+                
+                enemySpeed = espeed
+                println(enemySpeed)
+                
+            }
+            
+            
+            if let elogic = levelDict.valueForKey("EnemyLogic") as? Double {
+                
+                enemyLogic = elogic
+                println(enemyLogic)
+                
+            }
+            
+            if (levelDict.valueForKey("Background") != nil) {
+                
+                bgImage = levelDict.valueForKey("Background") as? String
+                
+            }
+        }
         
         /* initial properties */
         
@@ -59,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         if ( gameDict.valueForKey("Gravity") as? String != nil) {
             
-            println("has gravity from property list")
+            //println("has gravity from property list")
             let newGravity:CGPoint = CGPointFromString(gameDict.valueForKey("Gravity") as? String)
             physicsWorld.gravity = CGVector(dx: newGravity.x, dy: newGravity.y)
             
@@ -72,10 +129,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         physicsWorld.contactDelegate = self
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        
-        
-        let TMX:Bool = gameDict["UseTMXFiles"] as AnyObject? as! Bool? != false
-        useTMXFiles = TMX
+
+        useTMXFiles = (gameDict.valueForKey("UseTMXFile") as? Bool)!
         
         if(useTMXFiles == true) {
             
@@ -145,7 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         } else {
             
-            parseTMXFileWithName("Maze")
+            parseTMXFileWithName(currentTMXFile!)
         }
         
         
@@ -169,7 +224,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 self.mazeWorld!.addChild(newEnemy)
                 newEnemy.position = enemy.position
                 newEnemy.name = enemy.name!
-                
+                newEnemy.enemySpeed = self.enemySpeed
                 
                 self.enemyDictionnary.updateValue(newEnemy.position, forKey: newEnemy.name!)
                 
@@ -192,7 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             if let boundary = node as? SKSpriteNode{
                 
-                println("found boundary")
+                //println("found boundary")
                 let rect:CGRect = CGRect(origin: boundary.position, size: boundary.size)
                 let newBoundary:Boundary = Boundary(fromSKSwithRect: rect, isEdge:false)
                 self.mazeWorld!.addChild(newBoundary)
@@ -214,7 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             if let edge = node as? SKSpriteNode{
                 
-                println("found boundary")
+                //println("found boundary")
                 let rect:CGRect = CGRect(origin: edge.position, size: edge.size)
                 let newEdge:Boundary = Boundary(fromSKSwithRect: rect, isEdge:true)
                 self.mazeWorld!.addChild(newEdge)
@@ -243,7 +298,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 newStar.position = star.position
                 
                 self.starsTotal++
-                println(self.starsTotal)
+                //println(self.starsTotal)
                 
                 star.removeFromParent()
                 
@@ -390,7 +445,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             if (starsAcquired == starsTotal) {
                 
-                println("got all the stars")
+                //println("got all the stars")
             }
             
         default:
@@ -503,6 +558,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 mazeWorld!.addChild(newEnemy)
                 
                 newEnemy.name = theName
+                newEnemy.enemySpeed = enemySpeed
                 
                 let location:CGPoint = newEnemy.position
                 
@@ -540,7 +596,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         
         
-        let enemyAction:SKAction = SKAction.waitForDuration(5)
+        let enemyAction:SKAction = SKAction.waitForDuration(enemyLogic)
         
         self.runAction(enemyAction, completion: {
             
