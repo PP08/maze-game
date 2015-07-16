@@ -25,7 +25,7 @@
 		<key>UseTMXFile</key>
 		<true/>
 		<key>ShowPhysics</key>
-		<true/>
+		<false/>
 		<key>ParallaxOffset</key>
 		<string>{ 0.7, 0.7 }</string>
 		<key>Gravity</key>

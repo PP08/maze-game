@@ -42,6 +42,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var bgImage:String?
     var enemyLogic:Double = 5
+    var gameLabel:SKLabelNode?
+    
+    
     
     override func didMoveToView(view: SKView) {
         
@@ -205,7 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         
         tellEnemiesWhereHeroIs()
-        
+        createLabel()
         
     }
     
@@ -713,6 +716,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if (livesLeft == 0) {
             // show text label with gameover
             
+            gameLabel!.text = "GAME OVER"
+            
+            gameLabel!.position = CGPointZero
+            
+            gameLabel!.horizontalAlignmentMode = .Center
+            
+            
             let scaleAction:SKAction = SKAction.scaleTo(0.2, duration: 3)
             let fadeAction:SKAction = SKAction.fadeAlphaTo(0, duration: 3)
             let group:SKAction = SKAction.group([scaleAction, fadeAction])
@@ -727,7 +737,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             })
         }else {
-            
+            gameLabel!.text = "Live: " + String(livesLeft)
             //update text for lives label
         }
         
@@ -748,6 +758,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(1))
             
         }
+        
+    }
+    
+    func createLabel() {
+        
+        gameLabel = SKLabelNode(fontNamed: "BM germar")
+        gameLabel!.horizontalAlignmentMode = .Left
+        gameLabel!.verticalAlignmentMode = .Center
+        gameLabel!.fontColor = SKColor.whiteColor()
+        gameLabel!.text = "Lives: " + String(livesLeft)
+        
+        addChild(gameLabel!)
+        
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            
+            gameLabel!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 3))
+            
+        } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+            
+            gameLabel!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 2.3))
+        } else {
+            
+            gameLabel!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 3))
+        }
+        
     }
     
 }
