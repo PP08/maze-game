@@ -431,7 +431,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 
                 star.removeFromParent()
-                starsAcquired++
                 
             }else if let star = contact.bodyB.node as? Star {
                 
@@ -442,10 +441,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             
             starsAcquired++
-            
+            println(starsAcquired)
             if (starsAcquired == starsTotal) {
                 
                 //println("got all the stars")
+                loadNextLevel()
             }
             
         default:
@@ -656,6 +656,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     func reLoadLevel() {
         
+        loseLife()
         heroIsDead = true
         
     }
@@ -669,6 +670,84 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         }
         
+    }
+    
+    func loadNextLevel() {
+        
+        if ( useTMXFiles == true) {
+            
+            loadNextTMXLevel()
+            
+        } else {
+            
+            loadNextSKSLevel()
+        }
+    }
+    
+    
+    func loadNextTMXLevel() {
+        
+        
+        var scene:GameScene = GameScene(size: self.size)
+        
+        scene.scaleMode = .AspectFill
+        
+        self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(1))
+        
+    }
+    
+    func loadNextSKSLevel() {
+        
+        currentSKSFile = nextSKSFile!
+        var scene = GameScene.unarchiveFromFile(nextSKSFile!) as? GameScene
+        
+        scene!.scaleMode = .AspectFill
+        
+        self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(1))
+        
+    }
+    func loseLife() {
+        
+        livesLeft = livesLeft - 1
+        
+        if (livesLeft == 0) {
+            // show text label with gameover
+            
+            let scaleAction:SKAction = SKAction.scaleTo(0.2, duration: 3)
+            let fadeAction:SKAction = SKAction.fadeAlphaTo(0, duration: 3)
+            let group:SKAction = SKAction.group([scaleAction, fadeAction])
+            
+            /*let wait:SKAction = SKAction.waitForDuration(2)
+            let seq:SKAction = SKAction.sequence([group, wait])*/
+            
+            
+            mazeWorld!.runAction(group, completion: {
+            
+                self.resetGame()
+            
+            })
+        }else {
+            
+            //update text for lives label
+        }
+        
+    }
+    
+    func resetGame() {
+        
+        livesLeft = 3
+        currentLevel = 0
+        
+        if (useTMXFiles == true) {
+            
+            loadNextTMXLevel()
+            
+        } else {
+            
+            currentSKSFile = firstSKSFile
+            self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(1))
+            
+        }
     }
     
 }
