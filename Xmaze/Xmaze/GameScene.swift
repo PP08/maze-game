@@ -29,7 +29,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = true
+    var useTMXFiles:Bool = false
     var heroIsDead:Bool = false
     var starsAcquired:Int = 0
     var starsTotal:Int = 0
@@ -45,18 +45,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         let path = NSBundle.mainBundle().pathForResource("GameData", ofType: "plist")
         let dict = NSDictionary(contentsOfFile: path!)!
         let heroDict:AnyObject = dict.objectForKey("HeroSettings")!
-        
+        let gameDict:AnyObject = dict.objectForKey("GameSettings")!
         
         
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        view.showsPhysics = true
+        let Physics:Bool = gameDict["ShowPhysics"] as AnyObject? as! Bool? != false
         
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        view.showsPhysics = Physics
+    
+        
+        let gravity:Bool = gameDict["Gravity"] as AnyObject? as! String? == nil
+        
+        
+        if ( gravity) {
+            
+            println("has gravity from property list")
+            println(ngravity)
+            
+            let newGravity:CGPoint = CGPointFromString(gameDict["Gravity"] as AnyObject? as! String? )
+            physicsWorld.gravity = CGVector(dx: newGravity.x, dy: newGravity.y)
+            
+            
+        } else {
+            
+            physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        }
+        
+        
         physicsWorld.contactDelegate = self
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
+        
+        let TMX:Bool = gameDict["UseTMXFiles"] as AnyObject? as! Bool? != false
+        useTMXFiles = TMX
         
         if(useTMXFiles == true) {
             

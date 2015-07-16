@@ -21,6 +21,7 @@
 		F84B0CC91B5439ED00FEB9F3 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F84B0CC81B5439ED00FEB9F3 /* moving.atlas */; };
 		F870DF791B5463D40006BBFF /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F870DF781B5463D40006BBFF /* Maze.tmx */; };
 		F89043CA1B5717D700ACF657 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89043C91B5717D700ACF657 /* GameData.plist */; };
+		F89043CC1B572D5800ACF657 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89043CB1B572D5800ACF657 /* GameData.swift */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		F84B0CC81B5439ED00FEB9F3 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 		F870DF781B5463D40006BBFF /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
+		F89043CB1B572D5800ACF657 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				F811212B1B507056002D9380 /* hero.swift */,
 				F811212D1B507075002D9380 /* Boundary.swift */,
 				F847A8F41B544680004D5156 /* Enemy.swift */,
+				F89043CB1B572D5800ACF657 /* GameData.swift */,
 				F811210D1B506FD0002D9380 /* GameViewController.swift */,
 				F811210F1B506FD0002D9380 /* Main.storyboard */,
 				F870DF781B5463D40006BBFF /* Maze.tmx */,
@@ -256,6 +259,7 @@
 				F811210E1B506FD0002D9380 /* GameViewController.swift in Sources */,
 				F81121081B506FD0002D9380 /* AppDelegate.swift in Sources */,
 				F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */,
+				F89043CC1B572D5800ACF657 /* GameData.swift in Sources */,
 				F811212C1B507056002D9380 /* hero.swift in Sources */,
 				F811212E1B507075002D9380 /* Boundary.swift in Sources */,
 			);
