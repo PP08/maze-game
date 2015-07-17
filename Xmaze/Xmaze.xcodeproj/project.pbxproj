@@ -24,6 +24,7 @@
 		F89043CC1B572D5800ACF657 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89043CB1B572D5800ACF657 /* GameData.swift */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
 		F8FDCDE31B59C17100827DBE /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE21B59C17100827DBE /* moving.atlas */; };
+		F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +54,12 @@
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F85F51161B58591500B7F578 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
-		F85F51181B586B7A00B7F578 /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
 		F870DF781B5463D40006BBFF /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		F89043CB1B572D5800ACF657 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		F8FDCDE21B59C17100827DBE /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
+		F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +125,7 @@
 		F81121051B506FD0002D9380 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F85F51181B586B7A00B7F578 /* BMgermar.TTF */,
+				F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */,
 				F81121061B506FD0002D9380 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -243,6 +244,7 @@
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
 				F85F51171B58591500B7F578 /* GameScene2.sks in Resources */,
 				F8FDCDE31B59C17100827DBE /* moving.atlas in Resources */,
+				F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

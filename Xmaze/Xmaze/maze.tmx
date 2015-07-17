@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="10" tileheight="10" nextobjectid="319">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="10" tileheight="10" nextobjectid="322">
  <objectgroup name="Object Layer 1">
   <object id="1" name="StartingPoint" type="Portal" x="270" y="540" width="10" height="10"/>
   <object id="3" type="Boundary" x="300" y="120" width="50" height="150"/>
@@ -249,12 +249,13 @@
   <object id="306" type="Star" x="270" y="290" width="10" height="10"/>
   <object id="308" type="Edge" x="250" y="70" width="1050" height="900"/>
   <object id="310" type="Star" x="320" y="290" width="10" height="10"/>
-  <object id="311" name="enemy1" type="Enemy" x="620" y="390" width="20" height="20"/>
-  <object id="312" name="enemy2" type="Enemy" x="720" y="440" width="20" height="20"/>
   <object id="313" type="Star" x="520" y="440" width="10" height="10"/>
   <object id="314" type="Star" x="520" y="390" width="10" height="10"/>
   <object id="315" type="Star" x="520" y="340" width="10" height="10"/>
   <object id="316" type="Star" x="520" y="290" width="10" height="10"/>
   <object id="317" type="Star" x="520" y="490" width="10" height="10"/>
+  <object id="319" name="enemy3" type="Enemy" x="1270" y="930" width="20" height="20"/>
+  <object id="320" name="enemy1" type="Enemy" x="1270" y="710" width="20" height="20"/>
+  <object id="321" name="enemy2" type="Enemy" x="1260" y="80" width="20" height="20"/>
  </objectgroup>
 </map>
