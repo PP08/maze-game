@@ -7,7 +7,7 @@
 		<key>HeroImage</key>
 		<string>hero</string>
 		<key>BodyShape</key>
-		<string>circle</string>
+		<string>square</string>
 		<key>MovingAtlasFile</key>
 		<string>moving</string>
 		<key>MovingFrames</key>
@@ -27,7 +27,7 @@
 		<key>ShowPhysics</key>
 		<false/>
 		<key>ParallaxOffset</key>
-		<string>{ 0.7, 0.7 }</string>
+		<string>{ 0.7, 0.8 }</string>
 		<key>Gravity</key>
 		<string>{ 0.0, 0.0 }</string>
 	</dict>
@@ -43,7 +43,7 @@
 			<key>EnemySpeed</key>
 			<integer>4</integer>
 			<key>EnemyLogic</key>
-			<integer>5</integer>
+			<integer>7</integer>
 			<key>Background</key>
 			<string>star_field</string>
 		</dict>

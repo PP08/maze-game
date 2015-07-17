@@ -41,9 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var nextSKSFile:String?
     
     var bgImage:String?
-    var enemyLogic:Double = 5
+    var enemyLogic:Double?
     var gameLabel:SKLabelNode?
-    
+    var parallaxBG:SKSpriteNode?
+    var parallaxOffset:CGPoint = CGPointZero
     
     
     override func didMoveToView(view: SKView) {
@@ -97,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             if let elogic = levelDict.valueForKey("EnemyLogic") as? Double {
                 
                 enemyLogic = elogic
-                println(enemyLogic)
+                //println(enemyLogic)
                 
             }
             
@@ -130,6 +131,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         }
         
         
+        
+        if ( gameDict.valueForKey("ParallaxOffset") as? String != nil) {
+            
+            let parallaxOffsetAsString = gameDict.valueForKey("ParallaxOffset") as? String
+            parallaxOffset = CGPointFromString(parallaxOffsetAsString!)
+            
+            
+            
+        }
+        
+        
+        
+        
         physicsWorld.contactDelegate = self
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
@@ -137,7 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         if(useTMXFiles == true) {
             
-            println("setup with tmx")
+            //println("setup with tmx")
             
             self.enumerateChildNodesWithName("*"){
                 node, stop in
@@ -158,13 +172,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         
         
-        /* Setup your scene here */
+        /* hero and maze */
         
         
         hero = Hero(theDict: heroDict as! Dictionary)
         hero!.position = heroLocation
         mazeWorld!.addChild(hero!)
         hero!.currentSpeed = currentSpeed //wil get replaced later on per level basic
+        
+        /* background */
+        
+        
+        //MARK: TOMORROW
+        
         
         //gestures
         
@@ -599,7 +619,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         
         
-        let enemyAction:SKAction = SKAction.waitForDuration(enemyLogic)
+        let enemyAction:SKAction = SKAction.waitForDuration(enemyLogic!)
         
         self.runAction(enemyAction, completion: {
             

@@ -18,12 +18,12 @@
 		F811212C1B507056002D9380 /* hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212B1B507056002D9380 /* hero.swift */; };
 		F811212E1B507075002D9380 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212D1B507075002D9380 /* Boundary.swift */; };
 		F847A8F51B544680004D5156 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847A8F41B544680004D5156 /* Enemy.swift */; };
-		F84B0CC91B5439ED00FEB9F3 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F84B0CC81B5439ED00FEB9F3 /* moving.atlas */; };
 		F85F51171B58591500B7F578 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F85F51161B58591500B7F578 /* GameScene2.sks */; };
 		F870DF791B5463D40006BBFF /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F870DF781B5463D40006BBFF /* Maze.tmx */; };
 		F89043CA1B5717D700ACF657 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89043C91B5717D700ACF657 /* GameData.plist */; };
 		F89043CC1B572D5800ACF657 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89043CB1B572D5800ACF657 /* GameData.swift */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
+		F8FDCDE31B59C17100827DBE /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE21B59C17100827DBE /* moving.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +52,13 @@
 		F811212B1B507056002D9380 /* hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hero.swift; sourceTree = "<group>"; };
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
-		F84B0CC81B5439ED00FEB9F3 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 		F85F51161B58591500B7F578 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 		F85F51181B586B7A00B7F578 /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
 		F870DF781B5463D40006BBFF /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		F89043CB1B572D5800ACF657 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		F8FDCDE21B59C17100827DBE /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 		F89FC9AB1B51C4320033BEFA /* TextureAtlases */ = {
 			isa = PBXGroup;
 			children = (
-				F84B0CC81B5439ED00FEB9F3 /* moving.atlas */,
+				F8FDCDE21B59C17100827DBE /* moving.atlas */,
 			);
 			name = TextureAtlases;
 			sourceTree = "<group>";
@@ -238,11 +238,11 @@
 				F81121161B506FD0002D9380 /* LaunchScreen.xib in Resources */,
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
 				F870DF791B5463D40006BBFF /* Maze.tmx in Resources */,
-				F84B0CC91B5439ED00FEB9F3 /* moving.atlas in Resources */,
 				F89043CA1B5717D700ACF657 /* GameData.plist in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
 				F85F51171B58591500B7F578 /* GameScene2.sks in Resources */,
+				F8FDCDE31B59C17100827DBE /* moving.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

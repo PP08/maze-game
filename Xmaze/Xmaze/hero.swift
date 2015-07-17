@@ -29,7 +29,7 @@ class Hero:SKNode {
     /* properties*/
     
     var currentSpeed:Float = 5
-    var currentDirection = Direction.Right
+    var currentDirection = Direction.None
     var desiredDirection = DesiredDirection.None
     
     var movingAnimation:SKAction?
@@ -81,7 +81,7 @@ class Hero:SKNode {
                 
         }
         
-        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.15, height: objectSprite!.size.height * 1.15)
+        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
             
             
         let bodyShape:String = theDict["BodyShape"] as AnyObject? as! String
@@ -280,7 +280,7 @@ class Hero:SKNode {
             atlasTextures.insert (texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1/30, resize: true, restore: false)
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 0.25/30, resize: true, restore: false)
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
         
     }
