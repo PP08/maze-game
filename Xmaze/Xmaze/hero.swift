@@ -29,7 +29,7 @@ class Hero:SKNode {
     /* properties*/
     
     var currentSpeed:Float = 5
-    var currentDirection = Direction.None
+    var currentDirection = Direction.Right
     var desiredDirection = DesiredDirection.None
     
     var movingAnimation:SKAction?
@@ -280,7 +280,7 @@ class Hero:SKNode {
             atlasTextures.insert (texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 0.25/30, resize: true, restore: false)
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 2/30, resize: true, restore: false)
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
         
     }

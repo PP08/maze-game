@@ -49,7 +49,7 @@
 		</dict>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze</string>
+			<string>Maze2</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>

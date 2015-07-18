@@ -28,7 +28,7 @@ class Enemy: SKNode {
     
     var heroLocationIs = HeroIs.Southwest
     var currentDirection = EnemyDirection.Up
-    var enemySpeed:Float = 5
+    var enemySpeed:Float = 4
     var isStuck:Bool = false
     
     

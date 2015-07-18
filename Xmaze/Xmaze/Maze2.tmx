@@ -254,6 +254,7 @@
   <object id="315" type="Star" x="520" y="340" width="10" height="10"/>
   <object id="316" type="Star" x="520" y="290" width="10" height="10"/>
   <object id="317" type="Star" x="520" y="490" width="10" height="10"/>
+  <object id="319" name="enemy3" type="Enemy" x="1270" y="930" width="20" height="20"/>
   <object id="320" name="enemy1" type="Enemy" x="1270" y="710" width="20" height="20"/>
   <object id="321" name="enemy2" type="Enemy" x="1260" y="80" width="20" height="20"/>
  </objectgroup>

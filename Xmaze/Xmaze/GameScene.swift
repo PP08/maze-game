@@ -45,7 +45,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var gameLabel:SKLabelNode?
     var parallaxBG:SKSpriteNode?
     var parallaxOffset:CGPoint = CGPointZero
-    
+    var starsLabel:SKLabelNode?
+    var starsLeft:Int = 0
     
     override func didMoveToView(view: SKView) {
         
@@ -462,8 +463,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
             }
             
-            
+            starsLabel?.removeFromParent()
             starsAcquired++
+            starsLeft = starsTotal - starsAcquired
+            countingStars()
             println(starsAcquired)
             if (starsAcquired == starsTotal) {
                 
@@ -743,8 +746,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             gameLabel!.horizontalAlignmentMode = .Center
             
             
-            let scaleAction:SKAction = SKAction.scaleTo(0.2, duration: 3)
-            let fadeAction:SKAction = SKAction.fadeAlphaTo(0, duration: 3)
+            let scaleAction:SKAction = SKAction.scaleTo(0.2, duration: 2)
+            let fadeAction:SKAction = SKAction.fadeAlphaTo(0, duration: 2)
             let group:SKAction = SKAction.group([scaleAction, fadeAction])
             
             /*let wait:SKAction = SKAction.waitForDuration(2)
@@ -775,7 +778,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         } else {
             
             currentSKSFile = firstSKSFile
-            self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(1))
+            self.view?.presentScene(scene, transition: SKTransition.fadeWithDuration(0))
             
         }
         
@@ -804,5 +807,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         }
         
     }
+    
+    func countingStars() {
+        
+        starsLabel = SKLabelNode(fontNamed: "BM germar")
+        
+        starsLabel!.horizontalAlignmentMode = .Right
+        starsLabel!.verticalAlignmentMode = .Center
+        starsLabel!.fontColor = SKColor.whiteColor()
+        starsLabel!.text = "Stars: " + String(starsLeft)
+        
+        addChild(starsLabel!)
+        
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            
+            starsLabel!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 4))
+            
+        } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+            
+            starsLabel!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 2.3))
+        } else {
+            
+            starsLabel!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 3))
+        }
+        
+    }
+
     
 }
