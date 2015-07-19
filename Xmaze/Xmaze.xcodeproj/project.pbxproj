@@ -17,8 +17,15 @@
 		F81121221B506FD0002D9380 /* XmazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81121211B506FD0002D9380 /* XmazeTests.swift */; };
 		F811212C1B507056002D9380 /* hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212B1B507056002D9380 /* hero.swift */; };
 		F811212E1B507075002D9380 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212D1B507075002D9380 /* Boundary.swift */; };
+		F82BE35C1B5C465100289021 /* Collecting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F82BE3591B5C465100289021 /* Collecting.mp3 */; };
+		F82BE35D1B5C465100289021 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F82BE35A1B5C465100289021 /* GameOver.mp3 */; };
 		F847A8F51B544680004D5156 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847A8F41B544680004D5156 /* Enemy.swift */; };
 		F85F51171B58591500B7F578 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F85F51161B58591500B7F578 /* GameScene2.sks */; };
+		F88B563A1B5C5333001145E6 /* LoseLife1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B56391B5C5333001145E6 /* LoseLife1.mp3 */; };
+		F88B563C1B5C537D001145E6 /* BgSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B563B1B5C537D001145E6 /* BgSound.mp3 */; };
+		F88B563E1B5C5472001145E6 /* Move.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B563D1B5C5472001145E6 /* Move.mp3 */; };
+		F88B56401B5C5618001145E6 /* Collecting12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B563F1B5C5618001145E6 /* Collecting12.mp3 */; };
+		F88B56421B5C57B4001145E6 /* LoseLife.wav in Resources */ = {isa = PBXBuildFile; fileRef = F88B56411B5C57B4001145E6 /* LoseLife.wav */; };
 		F89043CA1B5717D700ACF657 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89043C91B5717D700ACF657 /* GameData.plist */; };
 		F89043CC1B572D5800ACF657 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89043CB1B572D5800ACF657 /* GameData.swift */; };
 		F89894431B59CAF1000AF260 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F89894421B59CAF1000AF260 /* moving.atlas */; };
@@ -53,8 +60,15 @@
 		F81121211B506FD0002D9380 /* XmazeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmazeTests.swift; sourceTree = "<group>"; };
 		F811212B1B507056002D9380 /* hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hero.swift; sourceTree = "<group>"; };
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
+		F82BE3591B5C465100289021 /* Collecting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Collecting.mp3; sourceTree = "<group>"; };
+		F82BE35A1B5C465100289021 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F85F51161B58591500B7F578 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
+		F88B56391B5C5333001145E6 /* LoseLife1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LoseLife1.mp3; sourceTree = "<group>"; };
+		F88B563B1B5C537D001145E6 /* BgSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BgSound.mp3; sourceTree = "<group>"; };
+		F88B563D1B5C5472001145E6 /* Move.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Move.mp3; sourceTree = "<group>"; };
+		F88B563F1B5C5618001145E6 /* Collecting12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Collecting12.mp3; sourceTree = "<group>"; };
+		F88B56411B5C57B4001145E6 /* LoseLife.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LoseLife.wav; sourceTree = "<group>"; };
 		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		F89043CB1B572D5800ACF657 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		F89894421B59CAF1000AF260 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
@@ -128,6 +142,13 @@
 		F81121051B506FD0002D9380 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F88B563B1B5C537D001145E6 /* BgSound.mp3 */,
+				F88B563F1B5C5618001145E6 /* Collecting12.mp3 */,
+				F88B56411B5C57B4001145E6 /* LoseLife.wav */,
+				F88B56391B5C5333001145E6 /* LoseLife1.mp3 */,
+				F82BE3591B5C465100289021 /* Collecting.mp3 */,
+				F82BE35A1B5C465100289021 /* GameOver.mp3 */,
+				F88B563D1B5C5472001145E6 /* Move.mp3 */,
 				F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */,
 				F81121061B506FD0002D9380 /* Info.plist */,
 			);
@@ -239,9 +260,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F88B56401B5C5618001145E6 /* Collecting12.mp3 in Resources */,
 				F89894431B59CAF1000AF260 /* moving.atlas in Resources */,
 				F81121161B506FD0002D9380 /* LaunchScreen.xib in Resources */,
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
+				F82BE35C1B5C465100289021 /* Collecting.mp3 in Resources */,
+				F82BE35D1B5C465100289021 /* GameOver.mp3 in Resources */,
 				F89043CA1B5717D700ACF657 /* GameData.plist in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
@@ -249,6 +273,10 @@
 				F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */,
 				F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */,
 				F8FC82BC1B5B472800F04EB5 /* Maze2.tmx in Resources */,
+				F88B56421B5C57B4001145E6 /* LoseLife.wav in Resources */,
+				F88B563E1B5C5472001145E6 /* Move.mp3 in Resources */,
+				F88B563C1B5C537D001145E6 /* BgSound.mp3 in Resources */,
+				F88B563A1B5C5333001145E6 /* LoseLife1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

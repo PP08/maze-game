@@ -49,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var parallaxBG:SKSpriteNode?
     var parallaxOffset:CGPoint = CGPointZero
-    
+    var bgSoundPlayer:AVAudioPlayer?
     
     override func didMoveToView(view: SKView) {
         
@@ -106,11 +106,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
             }
             
-            if (levelDict.valueForKey("Background") != nil) {
+            if let bg = levelDict.valueForKey("Background") as? String {
                 
-                bgImage = levelDict.valueForKey("Background") as? String
+                bgImage = bg
                 
             }
+            
+            if let musicFile = levelDict.valueForKey("Music") as? String {
+                
+                playBackgroundSound(musicFile)
+                
+            }
+            
+            
         }
         
         /* initial properties */
@@ -444,6 +452,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         case BodyType.hero.rawValue | BodyType.enemy.rawValue:
             
+            let collectSound:SKAction = SKAction.playSoundFileNamed("LoseLife.wav", waitForCompletion: false)
+            self.runAction(collectSound)
             reLoadLevel()
             
         case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
@@ -459,8 +469,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         case BodyType.boundary.rawValue | BodyType.sensorRight.rawValue:
             
             hero!.rightSensorContactStart()
-            
+        
+        case BodyType.hero.rawValue | BodyType.boundary2.rawValue:
+            let moveSound:SKAction = SKAction.playSoundFileNamed("Move.mp3", waitForCompletion: false)
+            self.runAction(moveSound)
+        
         case BodyType.hero.rawValue | BodyType.star.rawValue:
+            
+            let collectSound:SKAction = SKAction.playSoundFileNamed("Collecting.mp3", waitForCompletion: false)
+            self.runAction(collectSound)
             
             if let star = contact.bodyA.node as? Star {
                 
@@ -748,6 +765,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     func loadNextLevel() {
         
         currentLevel++
+        
+        if (bgSoundPlayer != nil) {
+            
+            bgSoundPlayer!.stop()
+            bgSoundPlayer = nil
+        }
+        
         if ( useTMXFiles == true) {
             
             loadNextTMXLevel()
@@ -793,6 +817,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             gameLabel!.horizontalAlignmentMode = .Center
             
+            playBackgroundSound("GameOver")
             
             let scaleAction:SKAction = SKAction.scaleTo(0.2, duration: 2)
             let fadeAction:SKAction = SKAction.fadeAlphaTo(0, duration: 2)
@@ -804,7 +829,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             mazeWorld!.runAction(group, completion: {
             
-                self.resetGame()
+                //self.resetGame()
             
             })
         }else {
@@ -818,6 +843,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         livesLeft = 3
         currentLevel = 0
+        
+        
+        if (bgSoundPlayer != nil) {
+            
+            bgSoundPlayer!.stop()
+            bgSoundPlayer = nil
+        }
         
         if (useTMXFiles == true) {
             
@@ -888,6 +920,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         mazeWorld!.addChild(parallaxBG!)
         parallaxBG!.position = CGPoint(x: parallaxBG!.size.width / 2, y: -parallaxBG!.size.height / 2)
         parallaxBG!.alpha = 0.5
+    }
+    
+    func playBackgroundSound(name:String) {
+        
+        if (bgSoundPlayer != nil) {
+            
+            bgSoundPlayer!.stop()
+            bgSoundPlayer = nil
+        }
+        
+        
+        let fileURL:NSURL = NSBundle.mainBundle().URLForResource(name, withExtension: "mp3")!
+        bgSoundPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        
+        bgSoundPlayer!.volume = 0.5 //haft volume
+        bgSoundPlayer!.numberOfLoops = -1
+        bgSoundPlayer!.prepareToPlay()
+
+        bgSoundPlayer!.play()
+        
     }
     
 }

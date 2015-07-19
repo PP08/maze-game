@@ -46,6 +46,8 @@
 			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
+			<key>Music</key>
+			<string>BgSound</string>
 		</dict>
 		<dict>
 			<key>TMXFile</key>
@@ -60,6 +62,8 @@
 			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
+			<key>Music</key>
+			<string>BgSound</string>
 		</dict>
 		<dict>
 			<key>TMXFile</key>
@@ -74,6 +78,8 @@
 			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
+			<key>Music</key>
+			<string>BgSound</string>
 		</dict>
 		<dict>
 			<key>TMXFile</key>
@@ -88,6 +94,8 @@
 			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
+			<key>Music</key>
+			<string>BgSound</string>
 		</dict>
 		<dict>
 			<key>TMXFile</key>
@@ -102,6 +110,8 @@
 			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
+			<key>Music</key>
+			<string>BgSound</string>
 		</dict>
 	</array>
 </dict>
