@@ -34,6 +34,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroIsDead:Bool = false
     var starsAcquired:Int = 0
     var starsTotal:Int = 0
+    var starsLabel:SKLabelNode?
+    var starsLeft:Int = 0
     var enemyCount:Int = 0
     var enemyDictionnary:[String : CGPoint] = [:]
     
@@ -43,10 +45,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var bgImage:String?
     var enemyLogic:Double?
     var gameLabel:SKLabelNode?
+    
     var parallaxBG:SKSpriteNode?
     var parallaxOffset:CGPoint = CGPointZero
-    var starsLabel:SKLabelNode?
-    var starsLeft:Int = 0
+    
     
     override func didMoveToView(view: SKView) {
         
@@ -182,6 +184,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         hero!.currentSpeed = currentSpeed //wil get replaced later on per level basic
         
         /* background */
+        
+        
+        if(bgImage != nil) {
+            
+            createBackground(bgImage!)
+            
+        }
+        
         
         
         //MARK: TOMORROW
@@ -614,6 +624,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
         mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)
+        
+        /* handle parallax */
+        
+        if (parallaxOffset.x != 0) {
+            
+            if ( Int(cameraPositionInScene.x) < 0 ) {
+                
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x + parallaxOffset.x, y: parallaxBG!.position.y)
+            
+            } else if ( Int(cameraPositionInScene.x) > 0 ) {
+                
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x - parallaxOffset.x, y: parallaxBG!.position.y)
+            }
+            
+        }
+        
+        if (parallaxOffset.y != 0) {
+            
+            if ( Int(cameraPositionInScene.y) < 0 ) {
+                
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x, y: parallaxBG!.position.y + parallaxOffset.y)
+                
+            } else if ( Int(cameraPositionInScene.y) > 0 ) {
+                
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x, y: parallaxBG!.position.y - parallaxOffset.y)
+            }
+            
+        }
+        
     }
     
     //MARK: ENEMY STUFF
@@ -832,6 +871,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         }
         
     }
-
+    
+    
+    func createBackground(image:String) {
+       
+        parallaxBG = SKSpriteNode(imageNamed: image)
+        mazeWorld!.addChild(parallaxBG!)
+        parallaxBG!.position = CGPoint(x: parallaxBG!.size.width / 2, y: -parallaxBG!.size.height / 2)
+        parallaxBG!.alpha = 0.5
+    }
     
 }
