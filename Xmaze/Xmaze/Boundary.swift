@@ -97,4 +97,11 @@ class Boundary:SKNode {
         self.zPosition = 100
     }
     
+    func makeMoveable() {
+        
+        self.physicsBody?.dynamic = true
+        self.physicsBody!.categoryBitMask = BodyType.boundary2.rawValue
+        self.physicsBody?.collisionBitMask = BodyType.hero.rawValue | BodyType.enemy.rawValue | BodyType.boundary.rawValue | BodyType.boundary2.rawValue
+    }
+    
 }

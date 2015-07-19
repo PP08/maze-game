@@ -19,12 +19,12 @@
 		F811212E1B507075002D9380 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212D1B507075002D9380 /* Boundary.swift */; };
 		F847A8F51B544680004D5156 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847A8F41B544680004D5156 /* Enemy.swift */; };
 		F85F51171B58591500B7F578 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F85F51161B58591500B7F578 /* GameScene2.sks */; };
-		F870DF791B5463D40006BBFF /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F870DF781B5463D40006BBFF /* Maze.tmx */; };
 		F89043CA1B5717D700ACF657 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = F89043C91B5717D700ACF657 /* GameData.plist */; };
 		F89043CC1B572D5800ACF657 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89043CB1B572D5800ACF657 /* GameData.swift */; };
 		F89894431B59CAF1000AF260 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F89894421B59CAF1000AF260 /* moving.atlas */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
-		F8A2E37F1B5AE1D50096E463 /* Maze2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8A2E37E1B5AE1D50096E463 /* Maze2.tmx */; };
+		F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82B51B5B34E600F04EB5 /* Maze.tmx */; };
+		F8FC82BA1B5B38AA00F04EB5 /* Maze_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82B91B5B38AA00F04EB5 /* Maze_2.tmx */; };
 		F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */; };
 /* End PBXBuildFile section */
 
@@ -55,12 +55,12 @@
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F85F51161B58591500B7F578 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
-		F870DF781B5463D40006BBFF /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F89043C91B5717D700ACF657 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		F89043CB1B572D5800ACF657 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		F89894421B59CAF1000AF260 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
-		F8A2E37E1B5AE1D50096E463 /* Maze2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze2.tmx; sourceTree = "<group>"; };
+		F8FC82B51B5B34E600F04EB5 /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
+		F8FC82B91B5B38AA00F04EB5 /* Maze_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze_2.tmx; sourceTree = "<group>"; };
 		F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,8 +115,8 @@
 				F89043CB1B572D5800ACF657 /* GameData.swift */,
 				F811210D1B506FD0002D9380 /* GameViewController.swift */,
 				F811210F1B506FD0002D9380 /* Main.storyboard */,
-				F870DF781B5463D40006BBFF /* Maze.tmx */,
-				F8A2E37E1B5AE1D50096E463 /* Maze2.tmx */,
+				F8FC82B91B5B38AA00F04EB5 /* Maze_2.tmx */,
+				F8FC82B51B5B34E600F04EB5 /* Maze.tmx */,
 				F81121121B506FD0002D9380 /* Images.xcassets */,
 				F81121141B506FD0002D9380 /* LaunchScreen.xib */,
 				F89FC9AB1B51C4320033BEFA /* TextureAtlases */,
@@ -242,13 +242,13 @@
 				F89894431B59CAF1000AF260 /* moving.atlas in Resources */,
 				F81121161B506FD0002D9380 /* LaunchScreen.xib in Resources */,
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
-				F870DF791B5463D40006BBFF /* Maze.tmx in Resources */,
-				F8A2E37F1B5AE1D50096E463 /* Maze2.tmx in Resources */,
 				F89043CA1B5717D700ACF657 /* GameData.plist in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
 				F85F51171B58591500B7F578 /* GameScene2.sks in Resources */,
 				F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */,
+				F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */,
+				F8FC82BA1B5B38AA00F04EB5 /* Maze_2.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

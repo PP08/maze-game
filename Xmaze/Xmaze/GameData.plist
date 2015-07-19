@@ -43,13 +43,27 @@
 			<key>EnemySpeed</key>
 			<integer>4</integer>
 			<key>EnemyLogic</key>
-			<integer>7</integer>
+			<integer>3</integer>
 			<key>Background</key>
 			<string>star_field</string>
 		</dict>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze2</string>
+			<string>Maze</string>
+			<key>NextSKSFile</key>
+			<string>GameScene2</string>
+			<key>Speed</key>
+			<integer>5</integer>
+			<key>EnemySpeed</key>
+			<integer>4</integer>
+			<key>EnemyLogic</key>
+			<integer>3</integer>
+			<key>BackGround</key>
+			<string>star_field</string>
+		</dict>
+		<dict>
+			<key>TMXFile</key>
+			<string>Maze3</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>
@@ -63,7 +77,7 @@
 		</dict>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze</string>
+			<string>Maze4</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>
@@ -77,21 +91,7 @@
 		</dict>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze</string>
-			<key>NextSKSFile</key>
-			<string>GameScene2</string>
-			<key>Speed</key>
-			<integer>4</integer>
-			<key>EnemySpeed</key>
-			<integer>4</integer>
-			<key>EnemyLogic</key>
-			<integer>3</integer>
-			<key>BackGround</key>
-			<string>star_field</string>
-		</dict>
-		<dict>
-			<key>TMXFile</key>
-			<string>Maze</string>
+			<string>Maze5</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>

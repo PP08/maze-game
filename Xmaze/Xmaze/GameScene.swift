@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 enum BodyType:UInt32 {
     case hero = 1
@@ -66,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if let levelNSArray:NSArray = levelArray as? NSArray {
             
             
-            println(levelNSArray)
+            //println(levelNSArray)
             
             var levelDict:AnyObject = levelNSArray[currentLevel]
             
@@ -140,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             let parallaxOffsetAsString = gameDict.valueForKey("ParallaxOffset") as? String
             parallaxOffset = CGPointFromString(parallaxOffsetAsString!)
             
-            
+            //println(parallaxOffset)
             
         }
         
@@ -535,11 +536,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if (elementName == "object") {
             
             let type:AnyObject? = attributeDict["type"]
-            if (type as? String == "Boundary") {
+            if (type as? String == "Boundary" || type as? String == "Boundary2") {
+                
+                
                 var tmxDict = attributeDict
                 tmxDict.updateValue("false", forKey: "isEdge")
                 let newBoundary:Boundary = Boundary(theDict: tmxDict)
                 mazeWorld!.addChild(newBoundary)
+                
+                if(type as? String == "Boundary2") {
+                    
+                    newBoundary.makeMoveable()
+                }
                 
                 
             } else if (type as? String == "Edge") {
@@ -631,11 +639,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             if ( Int(cameraPositionInScene.x) < 0 ) {
                 
-                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x + parallaxOffset.x, y: parallaxBG!.position.y)
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x + parallaxOffset.x, y: parallaxBG!.position.y)//CGPoint(x: , y: )
             
             } else if ( Int(cameraPositionInScene.x) > 0 ) {
                 
-                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x - parallaxOffset.x, y: parallaxBG!.position.y)
+                parallaxBG!.position = CGPoint(x: parallaxBG!.position.x - parallaxOffset.x, y: parallaxBG!.position.y)//CGPoint(x: , y: )
             }
             
         }
@@ -739,6 +747,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     func loadNextLevel() {
         
+        currentLevel++
         if ( useTMXFiles == true) {
             
             loadNextTMXLevel()
