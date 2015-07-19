@@ -49,7 +49,7 @@
 		</dict>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze</string>
+			<string>Maze2</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>
@@ -58,7 +58,7 @@
 			<integer>4</integer>
 			<key>EnemyLogic</key>
 			<integer>3</integer>
-			<key>BackGround</key>
+			<key>Background</key>
 			<string>star_field</string>
 		</dict>
 		<dict>
@@ -72,7 +72,7 @@
 			<integer>4</integer>
 			<key>EnemyLogic</key>
 			<integer>3</integer>
-			<key>BackGround</key>
+			<key>Background</key>
 			<string>star_field</string>
 		</dict>
 		<dict>
@@ -86,7 +86,7 @@
 			<integer>4</integer>
 			<key>EnemyLogic</key>
 			<integer>3</integer>
-			<key>BackGround</key>
+			<key>Background</key>
 			<string>star_field</string>
 		</dict>
 		<dict>
@@ -100,7 +100,7 @@
 			<integer>4</integer>
 			<key>EnemyLogic</key>
 			<integer>3</integer>
-			<key>BackGround</key>
+			<key>Background</key>
 			<string>star_field</string>
 		</dict>
 	</array>
