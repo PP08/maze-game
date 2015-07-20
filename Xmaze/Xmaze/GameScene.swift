@@ -51,14 +51,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var parallaxOffset:CGPoint = CGPointZero
     var bgSoundPlayer:AVAudioPlayer?
     
-    var pauseMenu:SKLabelNode?
-    
+    var PauseButton:SKNode?
+    var PlayButton:SKNode?
     
     
     override func didMoveToView(view: SKView) {
         
         
         /* parse Property list*/
+        
+        
+        
         
         
         //addChild(pauseMenu!)
@@ -130,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        self.pausingMenu()
+        //self.pausingMenu()
         view.showsPhysics = (gameDict.valueForKey("ShowPhysics") as? Bool)!
     
         let level = gameDict.valueForKey("Gravity") as? String
@@ -160,8 +163,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         }
         
         
-        
-        
         physicsWorld.contactDelegate = self
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
@@ -179,6 +180,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             }
             
             mazeWorld = SKNode()
+            
             addChild(mazeWorld!)
             
             
@@ -198,14 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         mazeWorld!.addChild(hero!)
         hero!.currentSpeed = currentSpeed //wil get replaced later on per level basic
         
-        /* background */
         
-        
-        if(bgImage != nil) {
-            
-            createBackground(bgImage!)
-            
-        }
         
         
         
@@ -237,6 +232,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             }
         )
         
+        Pause()
+        
+        /* background */
+        
+        if(bgImage != nil) {
+            
+            createBackground(bgImage!)
+            
+        }
+        
+        
+        
         
         /*set up based on TMX or SKS*/
         
@@ -255,6 +262,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         tellEnemiesWhereHeroIs()
         createLabel()
+        
         
     }
     
@@ -365,18 +373,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         var node = self.nodeAtPoint(location)
         
         // If previous button is touched, start transition to previous scene
-        if (node.name == "Pausing") {
+        /*if (node.name == "Pausing") {
             if (self.bgSoundPlayer != nil) {
                 
                 self.bgSoundPlayer!.stop()
                 self.bgSoundPlayer = nil
             }
             
-            var menuScene = Menu(size: self.size)
-            var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+            
+            self.paused = true
+            
+            var menuScene = InGameMenu(size: self.size)
+            var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
             menuScene.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(menuScene, transition: transition)
+            
+        }*/
+        if(node.name == "PauseButton") {
+            
+            //self.scene!.view!.paused = true
+            
+            //self.performSelector:@selector(pauseGame) withObject:nil afterDelay:1/60.0
+            
+            var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("pauseGame"), userInfo: nil, repeats: false)
+            
+            //var menuScene = InGameMenu(size: self.size)
+           // var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
+           // menuScene.scaleMode = SKSceneScaleMode.AspectFill
+            //self.scene!.view?.presentScene(menuScene, transition: transition)
+            PauseButton!.removeFromParent()
+            Resume()
         }
+        
+        if(node.name == "PlayButton") {
+            
+            self.scene!.view!.paused = false
+            
+            PlayButton!.removeFromParent()
+            Pause()
+        }
+        
+        /*SKNode * Node = [self nodeAtPoint:location];
+        
+        if([Node.name isEqualToString:@"PauseButton"]){
+        
+        self.scene.view.paused = YES;
+        
+        [PauseButton removeFromParent];
+        [self Resume];
+        }
+        
+        if([Node.name isEqualToString:@"PlayButton"]){
+        
+        self.scene.view.paused = NO;
+        
+        [PlayButton removeFromParent];
+        [self Pause];
+        }*/
 
     }
     
@@ -578,7 +631,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 tmxDict.updateValue("false", forKey: "isEdge")
                 let newBoundary:Boundary = Boundary(theDict: tmxDict)
                 mazeWorld!.addChild(newBoundary)
-                
+
                 if(type as? String == "Boundary2") {
                     
                     newBoundary.makeMoveable()
@@ -667,7 +720,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
         mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)
-        
         /* handle parallax */
         
         if (parallaxOffset.x != 0) {
@@ -949,6 +1001,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         parallaxBG = SKSpriteNode(imageNamed: image)
         mazeWorld!.addChild(parallaxBG!)
         parallaxBG!.position = CGPoint(x: parallaxBG!.size.width / 2, y: -parallaxBG!.size.height / 2)
+        parallaxBG!.zPosition = -1
         parallaxBG!.alpha = 0.5
     }
     
@@ -973,31 +1026,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
     
     
+    func Pause() {
     
-    func pausingMenu() {
+        PauseButton = SKSpriteNode(imageNamed: "pausebt.png") //[SKSpriteNode spriteNodeWithImageNamed: "Pause.png"]
+        //PauseButton!.position = CGPointZero//CGPointMake(-1, 0)
+        PauseButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 6))
+        //PauseButton!.zPosition = 3
+        //PauseButton!.size = CGSizeMake(40, 40)
+        PauseButton!.name = "PauseButton"
+        PauseButton!.zPosition = 1000
+        addChild(PauseButton!)
+    
+    }
+    
+    func Resume() {
+    
         
-        pauseMenu = SKLabelNode(fontNamed: "BM germar")
-        pauseMenu!.horizontalAlignmentMode = .Right
-        pauseMenu!.verticalAlignmentMode = .Center
-        pauseMenu!.fontColor = SKColor.whiteColor()
-        pauseMenu!.text = "Pause"
-        pauseMenu!.name = "Pausing"
-        addChild(pauseMenu!)
-        
-        println("pause")
-        
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-            
-            pauseMenu!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 8))
-            
-        } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
-            
-            pauseMenu!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 2.3))
-        } else {
-            
-            pauseMenu!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 3))
-        }
-        
+        PlayButton = SKSpriteNode(imageNamed: "playbt.png") //[SKSpriteNode spriteNodeWithImageNamed: "Pause.png"]
+        //PauseButton!.position = CGPointZero//CGPointMake(-1, 0)
+        PlayButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 6))
+        //PauseButton!.zPosition = 3
+        //PauseButton!.size = CGSizeMake(40, 40)
+        PlayButton!.name = "PlayButton"
+        PlayButton!.zPosition = 999
+        addChild(PlayButton!)
+    
+    }
+    
+    func pauseGame () {
+        self.scene!.view!.paused = true
+        //self.paused = true
     }
     
 }
