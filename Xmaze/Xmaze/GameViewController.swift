@@ -18,7 +18,7 @@ extension SKNode {
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
+            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! Menu
             archiver.finishDecoding()
             return scene
         } else {
@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene.unarchiveFromFile(currentSKSFile) as? GameScene {
+        if let scene = Menu.unarchiveFromFile(currentSKSFile) as? Menu {
             // Configure the view.
             let skView = self.view as! SKView
             skView.frameInterval = 0

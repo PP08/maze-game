@@ -49,9 +49,9 @@
   <object id="315" type="Star" x="520" y="340" width="10" height="10"/>
   <object id="316" type="Star" x="520" y="290" width="10" height="10"/>
   <object id="317" type="Star" x="520" y="490" width="10" height="10"/>
-  <object id="322" name="enemy1" type="Enemy" x="1260" y="930" width="20" height="20"/>
-  <object id="323" name="enemy2" type="Enemy" x="1260" y="540" width="20" height="20"/>
-  <object id="324" name="enemy3" type="Enemy" x="1260" y="80" width="20" height="20"/>
-  <object id="325" type="Boundary2" x="360" y="530" width="32" height="32"/>
+  <object id="322" name="enemy1" type="Enemy" x="1160" y="680" width="20" height="20"/>
+  <object id="323" name="enemy2" type="Enemy" x="1160" y="540" width="20" height="20"/>
+  <object id="324" name="enemy3" type="Enemy" x="1160" y="230" width="20" height="20"/>
+  <object id="325" type="Boundary2" x="610" y="490" width="32" height="32"/>
  </objectgroup>
 </map>

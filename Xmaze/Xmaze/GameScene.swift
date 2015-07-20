@@ -75,26 +75,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 
                 currentTMXFile = tmxFile
-                println("specified a TMX file for this level")
+                //println("specified a TMX file for this level")
                 
             }
             if let sksFile = levelDict.valueForKey("NextSKSFile") as? String {
 
                 nextSKSFile = sksFile
-                println("specified a next SKS file if this level is passed")
+                //println("specified a next SKS file if this level is passed")
                 
             }
             if let speed = levelDict.valueForKey("Speed") as? Float {
                 
                 currentSpeed = speed
-                println(currentSpeed)
+                //println(currentSpeed)
                 
             }
             
             if let espeed = levelDict.valueForKey("EnemySpeed") as? Float {
                 
                 enemySpeed = espeed
-                println(enemySpeed)
+                //println(enemySpeed)
                 
             }
             
@@ -830,6 +830,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             mazeWorld!.runAction(group, completion: {
             
                 //self.resetGame()
+                
+                if (self.bgSoundPlayer != nil) {
+                    
+                    self.bgSoundPlayer!.stop()
+                    self.bgSoundPlayer = nil
+                }
+       
+                var menuScene = Menu(size: self.size)
+                var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+                menuScene.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(menuScene, transition: transition)
             
             })
         }else {
