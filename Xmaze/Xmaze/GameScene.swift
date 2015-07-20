@@ -51,10 +51,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var parallaxOffset:CGPoint = CGPointZero
     var bgSoundPlayer:AVAudioPlayer?
     
+    var pauseMenu:SKLabelNode?
+    
+    
     override func didMoveToView(view: SKView) {
         
         
         /* parse Property list*/
+        
         
         
         let path = NSBundle.mainBundle().pathForResource("GameData", ofType: "plist")
@@ -249,7 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         tellEnemiesWhereHeroIs()
         createLabel()
-        
+        pausingMenu()
     }
     
     
@@ -354,11 +358,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
+        var touch = touches as!  Set<UITouch>
+        var location = touch.first!.locationInNode(self)
+        var node = self.nodeAtPoint(location)
+        
+        // If previous button is touched, start transition to previous scene
+        if (node.name == "Pausing") {
+            if (self.bgSoundPlayer != nil) {
+                
+                self.bgSoundPlayer!.stop()
+                self.bgSoundPlayer = nil
+            }
             
-            
+            var menuScene = Menu(size: self.size)
+            var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+            menuScene.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(menuScene, transition: transition)
         }
+
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -950,6 +967,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         bgSoundPlayer!.prepareToPlay()
 
         bgSoundPlayer!.play()
+        
+    }
+    
+    
+    
+    func pausingMenu() {
+        
+        pauseMenu = SKLabelNode(fontNamed: "BM germar")
+        pauseMenu!.horizontalAlignmentMode = .Right
+        pauseMenu!.verticalAlignmentMode = .Center
+        pauseMenu!.fontColor = SKColor.whiteColor()
+        pauseMenu!.text = "Pause"
+        pauseMenu!.name = "Pausing"
+        addChild(pauseMenu!)
+        
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            
+            pauseMenu!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 72))
+            
+        } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
+            
+            pauseMenu!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 2.3))
+        } else {
+            
+            pauseMenu!.position = CGPoint(x: -(self.size.width / 2.3), y: -(self.size.height / 3))
+        }
         
     }
     
