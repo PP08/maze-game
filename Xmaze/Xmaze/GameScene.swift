@@ -54,12 +54,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var pauseMenu:SKLabelNode?
     
     
+    
     override func didMoveToView(view: SKView) {
         
         
         /* parse Property list*/
         
         
+        //addChild(pauseMenu!)
         
         let path = NSBundle.mainBundle().pathForResource("GameData", ofType: "plist")
         let dict = NSDictionary(contentsOfFile: path!)!
@@ -128,7 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         /* initial properties */
         
         self.backgroundColor = SKColor.blackColor()
-        
+        self.pausingMenu()
         view.showsPhysics = (gameDict.valueForKey("ShowPhysics") as? Bool)!
     
         let level = gameDict.valueForKey("Gravity") as? String
@@ -253,7 +255,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         tellEnemiesWhereHeroIs()
         createLabel()
-        pausingMenu()
+        
     }
     
     
@@ -555,7 +557,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     // MARK: parse TMX file
     
     func parseTMXFileWithName(name:NSString) {
-        
         let path:String = NSBundle.mainBundle().pathForResource(name as String, ofType: "tmx")!
         let data:NSData = NSData(contentsOfFile: path)!
         let parser:NSXMLParser = NSXMLParser(data: data)
@@ -858,6 +859,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
                 menuScene.scaleMode = SKSceneScaleMode.AspectFill
                 self.scene!.view?.presentScene(menuScene, transition: transition)
+                livesLeft = 3
             
             })
         }else {
@@ -899,7 +901,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         gameLabel!.verticalAlignmentMode = .Center
         gameLabel!.fontColor = SKColor.whiteColor()
         gameLabel!.text = "Lives: " + String(livesLeft)
-        
+        gameLabel!.name = "gameLabel"
         addChild(gameLabel!)
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
@@ -982,9 +984,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         pauseMenu!.name = "Pausing"
         addChild(pauseMenu!)
         
+        println("pause")
+        
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             
-            pauseMenu!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 72))
+            pauseMenu!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 8))
             
         } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
             
