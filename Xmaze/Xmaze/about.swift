@@ -1,8 +1,8 @@
 //
-//  Menu.swift
+//  about.swift
 //  Xmaze
 //
-//  Created by Phuc Phuong on 7/20/15.
+//  Created by Phuc Phuong on 7/21/15.
 //  Copyright (c) 2015 Phuc Phuong. All rights reserved.
 //
 
@@ -10,22 +10,19 @@ import UIKit
 import SpriteKit
 
 
-class Menu: SKScene {
+
+class about: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
         self.backgroundColor = SKColor.blackColor()
         
-        var playButton = SKSpriteNode(imageNamed: "playbt.png")
-        playButton.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)//CGPoint(x: 0, y: 0)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        playButton.name = "nextButton"
+        var closebt = SKSpriteNode(imageNamed: "exitbt.png")
+        closebt.position = CGPoint(x: self.size.width / (self.size.width * 0.6), y: self.size.height / 1.2)//CGPoint(x: 0, y: 0)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        closebt.name = "nextButton"
         
-        var aboutButton = SKSpriteNode(imageNamed: "aboutbt.png")
-        aboutButton.position = CGPoint(x: (self.size.width / 2), y: self.size.height / 4)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        aboutButton.name = "aboutButton"
         
-        self.addChild(aboutButton)
-        self.addChild(playButton)
+        self.addChild(closebt)
     }
     
     
@@ -56,4 +53,3 @@ class Menu: SKScene {
         /* Called before each frame is rendered */
     }
 }
-

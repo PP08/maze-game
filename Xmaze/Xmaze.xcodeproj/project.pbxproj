@@ -38,6 +38,8 @@
 		F8CC7EC71B5E9C1F004384E0 /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7EC61B5E9C1F004384E0 /* resetButton.png */; };
 		F8CC7ECC1B5E9E2D004384E0 /* pausebt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */; };
 		F8CC7ECD1B5E9E2D004384E0 /* exitbt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7ECB1B5E9E2D004384E0 /* exitbt.png */; };
+		F8CC7ECF1B5EA51C004384E0 /* aboutbt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7ECE1B5EA51C004384E0 /* aboutbt.png */; };
+		F8CC7ED11B5EA70D004384E0 /* about.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC7ED01B5EA70D004384E0 /* about.swift */; };
 		F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82B51B5B34E600F04EB5 /* Maze.tmx */; };
 		F8FC82BC1B5B472800F04EB5 /* Maze2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82BB1B5B472800F04EB5 /* Maze2.tmx */; };
 		F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */; };
@@ -89,6 +91,8 @@
 		F8CC7EC61B5E9C1F004384E0 /* resetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resetButton.png; sourceTree = "<group>"; };
 		F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebt.png; sourceTree = "<group>"; };
 		F8CC7ECB1B5E9E2D004384E0 /* exitbt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitbt.png; sourceTree = "<group>"; };
+		F8CC7ECE1B5EA51C004384E0 /* aboutbt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutbt.png; sourceTree = "<group>"; };
+		F8CC7ED01B5EA70D004384E0 /* about.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = about.swift; sourceTree = "<group>"; };
 		F8FC82B51B5B34E600F04EB5 /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F8FC82BB1B5B472800F04EB5 /* Maze2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze2.tmx; sourceTree = "<group>"; };
 		F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				F811210B1B506FD0002D9380 /* GameScene.swift */,
+				F8CC7ED01B5EA70D004384E0 /* about.swift */,
 				F8C72E0C1B5DA5F8003A2BB5 /* InGameMenu.swift */,
 				F88B56791B5C6761001145E6 /* Menu.swift */,
 				F89FC9BE1B51F5860033BEFA /* Star.swift */,
@@ -160,6 +165,7 @@
 		F81121051B506FD0002D9380 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F8CC7ECE1B5EA51C004384E0 /* aboutbt.png */,
 				F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */,
 				F8CC7ECB1B5E9E2D004384E0 /* exitbt.png */,
 				F8CC7EC61B5E9C1F004384E0 /* resetButton.png */,
@@ -307,6 +313,7 @@
 				F8CC7ECC1B5E9E2D004384E0 /* pausebt.png in Resources */,
 				F8CC7ECD1B5E9E2D004384E0 /* exitbt.png in Resources */,
 				F88B563A1B5C5333001145E6 /* LoseLife1.mp3 in Resources */,
+				F8CC7ECF1B5EA51C004384E0 /* aboutbt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +338,7 @@
 				F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */,
 				F8C72E0D1B5DA5F8003A2BB5 /* InGameMenu.swift in Sources */,
 				F89043CC1B572D5800ACF657 /* GameData.swift in Sources */,
+				F8CC7ED11B5EA70D004384E0 /* about.swift in Sources */,
 				F88B567A1B5C6761001145E6 /* Menu.swift in Sources */,
 				F811212C1B507056002D9380 /* hero.swift in Sources */,
 				F811212E1B507075002D9380 /* Boundary.swift in Sources */,
