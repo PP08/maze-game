@@ -34,8 +34,8 @@
 		F89894431B59CAF1000AF260 /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F89894421B59CAF1000AF260 /* moving.atlas */; };
 		F89FC9BF1B51F5860033BEFA /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FC9BE1B51F5860033BEFA /* Star.swift */; };
 		F8C72E0D1B5DA5F8003A2BB5 /* InGameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C72E0C1B5DA5F8003A2BB5 /* InGameMenu.swift */; };
-		F8C72E111B5DAFA4003A2BB5 /* pausebt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C72E101B5DAFA4003A2BB5 /* pausebt.png */; };
-		F8C72E131B5DB708003A2BB5 /* playbt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C72E121B5DB708003A2BB5 /* playbt.png */; };
+		F8C72E191B5DC692003A2BB5 /* playbt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C72E181B5DC692003A2BB5 /* playbt.png */; };
+		F8C72E1B1B5DC73F003A2BB5 /* pausebt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C72E1A1B5DC73F003A2BB5 /* pausebt.png */; };
 		F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82B51B5B34E600F04EB5 /* Maze.tmx */; };
 		F8FC82BC1B5B472800F04EB5 /* Maze2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8FC82BB1B5B472800F04EB5 /* Maze2.tmx */; };
 		F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */; };
@@ -83,8 +83,8 @@
 		F89894421B59CAF1000AF260 /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = moving.atlas; sourceTree = "<group>"; };
 		F89FC9BE1B51F5860033BEFA /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		F8C72E0C1B5DA5F8003A2BB5 /* InGameMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InGameMenu.swift; sourceTree = "<group>"; };
-		F8C72E101B5DAFA4003A2BB5 /* pausebt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebt.png; sourceTree = "<group>"; };
-		F8C72E121B5DB708003A2BB5 /* playbt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbt.png; sourceTree = "<group>"; };
+		F8C72E181B5DC692003A2BB5 /* playbt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbt.png; sourceTree = "<group>"; };
+		F8C72E1A1B5DC73F003A2BB5 /* pausebt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebt.png; sourceTree = "<group>"; };
 		F8FC82B51B5B34E600F04EB5 /* Maze.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze.tmx; sourceTree = "<group>"; };
 		F8FC82BB1B5B472800F04EB5 /* Maze2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Maze2.tmx; sourceTree = "<group>"; };
 		F8FDCDE41B59C3AA00827DBE /* BMgermar.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMgermar.TTF; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		F81121051B506FD0002D9380 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F8C72E121B5DB708003A2BB5 /* playbt.png */,
-				F8C72E101B5DAFA4003A2BB5 /* pausebt.png */,
+				F8C72E1A1B5DC73F003A2BB5 /* pausebt.png */,
+				F8C72E181B5DC692003A2BB5 /* playbt.png */,
 				F88B567D1B5C6B56001145E6 /* pattern.png */,
 				F88B567B1B5C67BC001145E6 /* nextButton.png */,
 				F88B563B1B5C537D001145E6 /* BgSound.mp3 */,
@@ -284,16 +284,16 @@
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
 				F82BE35C1B5C465100289021 /* Collecting.mp3 in Resources */,
 				F82BE35D1B5C465100289021 /* GameOver.mp3 in Resources */,
+				F8C72E191B5DC692003A2BB5 /* playbt.png in Resources */,
 				F88B567E1B5C6B56001145E6 /* pattern.png in Resources */,
-				F8C72E131B5DB708003A2BB5 /* playbt.png in Resources */,
 				F89043CA1B5717D700ACF657 /* GameData.plist in Resources */,
 				F811210A1B506FD0002D9380 /* GameScene.sks in Resources */,
 				F81121111B506FD0002D9380 /* Main.storyboard in Resources */,
-				F8C72E111B5DAFA4003A2BB5 /* pausebt.png in Resources */,
 				F85F51171B58591500B7F578 /* GameScene2.sks in Resources */,
 				F8FDCDE51B59C3AA00827DBE /* BMgermar.TTF in Resources */,
 				F8FC82B61B5B34E600F04EB5 /* Maze.tmx in Resources */,
 				F88B567C1B5C67BC001145E6 /* nextButton.png in Resources */,
+				F8C72E1B1B5DC73F003A2BB5 /* pausebt.png in Resources */,
 				F8FC82BC1B5B472800F04EB5 /* Maze2.tmx in Resources */,
 				F88B56421B5C57B4001145E6 /* LoseLife.wav in Resources */,
 				F88B563E1B5C5472001145E6 /* Move.mp3 in Resources */,

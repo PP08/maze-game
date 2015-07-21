@@ -160,7 +160,7 @@ class Enemy: SKNode {
         
         if (superDice == 0) {
             
-            println("randomly changing direction")
+            //println("randomly changing direction")
             
             let diceRoll = arc4random_uniform(4)
             

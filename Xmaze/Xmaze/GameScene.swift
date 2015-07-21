@@ -567,7 +567,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             starsAcquired++
             starsLeft = starsTotal - starsAcquired
             countingStars()
-            println(starsAcquired)
+            //println(starsAcquired)
             if (starsAcquired == starsTotal) {
                 
                 //println("got all the stars")
@@ -1029,8 +1029,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     func Pause() {
     
         PauseButton = SKSpriteNode(imageNamed: "pausebt.png") //[SKSpriteNode spriteNodeWithImageNamed: "Pause.png"]
-        //PauseButton!.position = CGPointZero//CGPointMake(-1, 0)
-        PauseButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 6))
+        //PauseButton!.position = CGPointMake(0, 0.5)
+        PauseButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 8))
         //PauseButton!.zPosition = 3
         //PauseButton!.size = CGSizeMake(40, 40)
         PauseButton!.name = "PauseButton"
@@ -1043,8 +1043,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
         
         PlayButton = SKSpriteNode(imageNamed: "playbt.png") //[SKSpriteNode spriteNodeWithImageNamed: "Pause.png"]
-        //PauseButton!.position = CGPointZero//CGPointMake(-1, 0)
-        PlayButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 6))
+        PlayButton!.position = CGPointZero//CGPointMake(0.5, 0.5)
+        //PlayButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 6))
         //PauseButton!.zPosition = 3
         //PauseButton!.size = CGSizeMake(40, 40)
         PlayButton!.name = "PlayButton"

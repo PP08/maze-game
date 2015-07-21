@@ -33,7 +33,7 @@ class Menu: SKScene {
         // If next button is touched, start transition to second scene
         if (node.name == "nextButton") {
             var secondScene = GameScene(size: self.size)
-            var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
+            var transition = SKTransition.doorsOpenHorizontalWithDuration(1)//doorsCloseHorizontalWithDuration(1)
             secondScene.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(secondScene, transition: transition)
         }

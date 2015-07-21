@@ -30,7 +30,7 @@ class Hero:SKNode {
     
     var currentSpeed:Float = 5
     var currentDirection = Direction.None
-    var desiredDirection = DesiredDirection.None
+    var desiredDirection = DesiredDirection.Right
     
     var movingAnimation:SKAction?
     
@@ -71,13 +71,13 @@ class Hero:SKNode {
             if let framesAsNSArray:NSArray = frameArray as? NSArray {
                     
                 setUpAnimationWithArray(framesAsNSArray, andAtlasNamed: atlasName)
-                runAnimation()
+                //runAnimation()
             }
                 
         } else {
                 
             setUpAnimation()
-            runAnimation()
+            //runAnimation()
                 
         }
         

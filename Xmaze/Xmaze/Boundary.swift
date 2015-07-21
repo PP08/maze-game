@@ -14,7 +14,7 @@ class Boundary:SKNode {
     
     /* properties*/
     
-    
+    var objectSprite:SKSpriteNode?
     
     required init(coder aDecoder: NSCoder){
         fatalError("init(coder:) has not been implemented")
@@ -98,7 +98,7 @@ class Boundary:SKNode {
     }
     
     func makeMoveable() {
-        
+        //let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
         self.physicsBody?.dynamic = true
         self.physicsBody!.categoryBitMask = BodyType.boundary2.rawValue
         self.physicsBody?.collisionBitMask = BodyType.hero.rawValue | BodyType.enemy.rawValue | BodyType.boundary.rawValue | BodyType.boundary2.rawValue
