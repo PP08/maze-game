@@ -53,7 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var PauseButton:SKNode?
     var PlayButton:SKNode?
+    var rsBackground:SKNode?
+    var resetButton:SKNode?
     
+    var exitMenu:SKNode?
     
     override func didMoveToView(view: SKView) {
         
@@ -371,38 +374,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         var touch = touches as!  Set<UITouch>
         var location = touch.first!.locationInNode(self)
         var node = self.nodeAtPoint(location)
-        
-        // If previous button is touched, start transition to previous scene
-        /*if (node.name == "Pausing") {
-            if (self.bgSoundPlayer != nil) {
-                
-                self.bgSoundPlayer!.stop()
-                self.bgSoundPlayer = nil
-            }
-            
-            
-            self.paused = true
-            
-            var menuScene = InGameMenu(size: self.size)
-            var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
-            menuScene.scaleMode = SKSceneScaleMode.AspectFill
-            self.scene!.view?.presentScene(menuScene, transition: transition)
-            
-        }*/
         if(node.name == "PauseButton") {
-            
-            //self.scene!.view!.paused = true
-            
-            //self.performSelector:@selector(pauseGame) withObject:nil afterDelay:1/60.0
             
             var timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("pauseGame"), userInfo: nil, repeats: false)
             
-            //var menuScene = InGameMenu(size: self.size)
-           // var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
-           // menuScene.scaleMode = SKSceneScaleMode.AspectFill
-            //self.scene!.view?.presentScene(menuScene, transition: transition)
+            if (bgSoundPlayer != nil) {
+                
+                bgSoundPlayer!.stop()
+                bgSoundPlayer = nil
+            }
             PauseButton!.removeFromParent()
+            resumeBackground()
             Resume()
+            resetMenu()
+            exitToMenu()
         }
         
         if(node.name == "PlayButton") {
@@ -410,26 +395,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             self.scene!.view!.paused = false
             
             PlayButton!.removeFromParent()
+            rsBackground!.removeFromParent()
+            exitMenu!.removeFromParent()
+            resetButton!.removeFromParent()
+            
+            if (bgSoundPlayer != nil) {
+                
+                bgSoundPlayer!.stop()
+                bgSoundPlayer = nil
+            }
+
             Pause()
         }
         
-        /*SKNode * Node = [self nodeAtPoint:location];
-        
-        if([Node.name isEqualToString:@"PauseButton"]){
-        
-        self.scene.view.paused = YES;
-        
-        [PauseButton removeFromParent];
-        [self Resume];
+        else if(node.name == "resetButton") {
+            
+            self.scene!.view!.paused = false
+            
+            if (bgSoundPlayer != nil) {
+                
+                bgSoundPlayer!.stop()
+                bgSoundPlayer = nil
+            }
+
+            
+            rsBackground!.removeFromParent()
+            exitMenu!.removeFromParent()
+            resetButton!.removeFromParent()
+            resetGame()
         }
-        
-        if([Node.name isEqualToString:@"PlayButton"]){
-        
-        self.scene.view.paused = NO;
-        
-        [PlayButton removeFromParent];
-        [self Pause];
-        }*/
+            
+        else if(node.name == "exitButton") {
+            
+            self.scene!.view!.paused = false
+            
+            if (bgSoundPlayer != nil) {
+                
+                bgSoundPlayer!.stop()
+                bgSoundPlayer = nil
+            }
+            
+            rsBackground!.removeFromParent()
+            exitMenu!.removeFromParent()
+            resetButton!.removeFromParent()
+            
+            var menuScene = Menu(size: self.size)
+            var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+            menuScene.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(menuScene, transition: transition)
+            livesLeft = 3
+            
+            
+        }
 
     }
     
@@ -983,7 +1000,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
             
-            starsLabel!.position = CGPoint(x: -(self.size.width / 3), y: -(self.size.height / 4))
+            starsLabel!.position = CGPoint(x: (self.size.width / 2.3), y: -(self.size.height / 3))
             
         } else if (UIDevice.currentDevice().userInterfaceIdiom == .Pad){
             
@@ -1029,8 +1046,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     func Pause() {
     
         PauseButton = SKSpriteNode(imageNamed: "pausebt.png") //[SKSpriteNode spriteNodeWithImageNamed: "Pause.png"]
-        //PauseButton!.position = CGPointMake(0, 0.5)
-        PauseButton!.position = CGPoint(x: -(self.size.width / 2.5), y: -(self.size.height / 8))
+        PauseButton!.position = CGPoint(x: -(self.size.width / 2.5), y: (self.size.height / 18))
+        //PauseButton!.position = CGPointMake(0, -(self.size.height / 8))//#x: CGFloat#>, )//(x: -(self.size.width / 2.5), y: -(self.size.height / 8))
         //PauseButton!.zPosition = 3
         //PauseButton!.size = CGSizeMake(40, 40)
         PauseButton!.name = "PauseButton"
@@ -1056,6 +1073,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     func pauseGame () {
         self.scene!.view!.paused = true
         //self.paused = true
+    }
+    
+    func resumeBackground() {
+        
+        rsBackground = SKSpriteNode(imageNamed: "rsBackground.png")
+        //let wiggleIn = SKAction.scaleXTo(1.0, duration: 0.2)
+        //let wiggleOut = SKAction.scaleXTo(1.2, duration: 0.2)
+        //let wiggle = SKAction.sequence([wiggleIn, wiggleOut])
+        //let wiggleRepeat = SKAction.repeatActionForever(wiggle)
+        
+        //rsBackground!.runAction(wiggleRepeat, withKey: "wiggle")
+        
+        rsBackground!.position = CGPointZero
+        rsBackground!.zPosition = 995
+        addChild(rsBackground!)
+    }
+    
+    func resetMenu() {
+        resetButton = SKSpriteNode(imageNamed: "resetButton.png")
+        resetButton!.position = CGPoint(x: -(self.size.width / 8), y: 0)
+        resetButton!.name = "resetButton"
+        resetButton!.zPosition = 998
+        addChild(resetButton!)
+
+    }
+    
+    func exitToMenu() {
+        exitMenu = SKSpriteNode(imageNamed: "exitbt.png")
+        exitMenu!.position = CGPoint(x: (self.size.width / 8), y: 0)
+        exitMenu!.name = "exitButton"
+        exitMenu!.zPosition = 997
+        addChild(exitMenu!)
+        
     }
     
 }

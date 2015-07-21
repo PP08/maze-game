@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
             // Configure the view.
             let skView = self.view as! SKView
             skView.frameInterval = 0
-            skView.showsFPS = true
+            skView.showsFPS = false
             skView.showsNodeCount = false
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
