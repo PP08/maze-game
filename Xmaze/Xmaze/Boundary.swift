@@ -97,6 +97,7 @@ class Boundary:SKNode {
         self.zPosition = 100
     }
     
+    
     func makeMoveable() {
         //let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
         self.physicsBody?.dynamic = true
