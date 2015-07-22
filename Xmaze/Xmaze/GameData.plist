@@ -35,7 +35,7 @@
 	<array>
 		<dict>
 			<key>TMXFile</key>
-			<string>Maze3</string>
+			<string>Maze</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>
@@ -68,38 +68,6 @@
 		<dict>
 			<key>TMXFile</key>
 			<string>Maze3</string>
-			<key>NextSKSFile</key>
-			<string>GameScene2</string>
-			<key>Speed</key>
-			<integer>4</integer>
-			<key>EnemySpeed</key>
-			<integer>4</integer>
-			<key>EnemyLogic</key>
-			<integer>3</integer>
-			<key>Background</key>
-			<string>star_field</string>
-			<key>Music</key>
-			<string>BgSound</string>
-		</dict>
-		<dict>
-			<key>TMXFile</key>
-			<string>Maze4</string>
-			<key>NextSKSFile</key>
-			<string>GameScene2</string>
-			<key>Speed</key>
-			<integer>4</integer>
-			<key>EnemySpeed</key>
-			<integer>4</integer>
-			<key>EnemyLogic</key>
-			<integer>3</integer>
-			<key>Background</key>
-			<string>star_field</string>
-			<key>Music</key>
-			<string>BgSound</string>
-		</dict>
-		<dict>
-			<key>TMXFile</key>
-			<string>Maze5</string>
 			<key>NextSKSFile</key>
 			<string>GameScene2</string>
 			<key>Speed</key>

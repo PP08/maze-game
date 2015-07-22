@@ -853,22 +853,62 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         currentLevel++
         
-        if (bgSoundPlayer != nil) {
+        if(currentLevel == 3) {
+            playBackgroundSound("yay")
+            gameLabel?.text = "CONGRATULATION! YOU'VE DONE SO WELL!"
+            gameLabel!.position = CGPointZero
+            
+            gameLabel!.horizontalAlignmentMode = .Center
+            
+            //playBackgroundSound("GameOver")
+            
+            let scaleAction2:SKAction = SKAction.scaleTo(5, duration: 5)
+            let fadeAction2:SKAction = SKAction.fadeAlphaTo(5, duration: 5)
+            let group2:SKAction = SKAction.group([scaleAction2, fadeAction2])
+            
+            /*let wait:SKAction = SKAction.waitForDuration(2)
+            let seq:SKAction = SKAction.sequence([group, wait])*/
+            
+            
+            mazeWorld!.runAction(group2, completion: {
+                
+                //self.resetGame()
+                
+                if (self.bgSoundPlayer != nil) {
+                    
+                    self.bgSoundPlayer!.stop()
+                    self.bgSoundPlayer = nil
+                }
+                
+                var menuScene = Menu(size: self.size)
+                var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+                menuScene.scaleMode = SKSceneScaleMode.AspectFill
+                self.scene!.view?.presentScene(menuScene, transition: transition)
+                livesLeft = 3
+            })
+        }
+        
+        else {
+
+            
+            if (bgSoundPlayer != nil) {
             
             bgSoundPlayer!.stop()
             bgSoundPlayer = nil
-        }
+            }
         
-        if ( useTMXFiles == true) {
+            if ( useTMXFiles == true) {
+                let collectSound:SKAction = SKAction.playSoundFileNamed("unbelievable.wav", waitForCompletion: false)
+                self.runAction(collectSound)
+                var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("loadNextTMXLevel"), userInfo: nil, repeats: false)
+                //loadNextTMXLevel()
             
-            loadNextTMXLevel()
+            } else {
             
-        } else {
-            
-            loadNextSKSLevel()
+                loadNextSKSLevel()
+            }
         }
     }
-    
     
     func loadNextTMXLevel() {
         
@@ -929,6 +969,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 menuScene.scaleMode = SKSceneScaleMode.AspectFill
                 self.scene!.view?.presentScene(menuScene, transition: transition)
                 livesLeft = 3
+                currentLevel = 0
             
             })
         }else {
