@@ -188,9 +188,7 @@ class Enemy: SKNode {
         
         /* check direction enemy is moving increment primarily in that direction */
             /* then add some to either left, right, up or down, depending on hero compass location */
-        
-        
-        
+  
         if (currentDirection == .Up) {
             
             self.position = CGPoint (x: self.position.x, y: self.position.y + CGFloat(enemySpeed))

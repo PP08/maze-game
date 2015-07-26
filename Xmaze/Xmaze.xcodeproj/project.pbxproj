@@ -19,8 +19,10 @@
 		F811212E1B507075002D9380 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F811212D1B507075002D9380 /* Boundary.swift */; };
 		F82BE35C1B5C465100289021 /* Collecting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F82BE3591B5C465100289021 /* Collecting.mp3 */; };
 		F82BE35D1B5C465100289021 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F82BE35A1B5C465100289021 /* GameOver.mp3 */; };
+		F82E16D11B6518C700B53106 /* rsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F82E16D01B6518C700B53106 /* rsBackground.png */; };
 		F847A8F51B544680004D5156 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847A8F41B544680004D5156 /* Enemy.swift */; };
 		F85F51171B58591500B7F578 /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F85F51161B58591500B7F578 /* GameScene2.sks */; };
+		F86E56C41B6539FB0004E8AF /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = F86E56C31B6539FB0004E8AF /* About.png */; };
 		F88B563A1B5C5333001145E6 /* LoseLife1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B56391B5C5333001145E6 /* LoseLife1.mp3 */; };
 		F88B563C1B5C537D001145E6 /* BgSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B563B1B5C537D001145E6 /* BgSound.mp3 */; };
 		F88B563E1B5C5472001145E6 /* Move.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F88B563D1B5C5472001145E6 /* Move.mp3 */; };
@@ -39,7 +41,6 @@
 		F8C9F3321B5F11DC00C91C07 /* test.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F8C9F3311B5F11DC00C91C07 /* test.tmx */; };
 		F8C9F3351B5F138A00C91C07 /* unbelievable.wav in Resources */ = {isa = PBXBuildFile; fileRef = F8C9F3331B5F138A00C91C07 /* unbelievable.wav */; };
 		F8C9F3361B5F138A00C91C07 /* yay.wav in Resources */ = {isa = PBXBuildFile; fileRef = F8C9F3341B5F138A00C91C07 /* yay.wav */; };
-		F8C9F3441B5F1B1F00C91C07 /* rsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F8C9F3431B5F1B1F00C91C07 /* rsBackground.png */; };
 		F8CC7EC51B5E9C13004384E0 /* playbt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7EC41B5E9C13004384E0 /* playbt.png */; };
 		F8CC7EC71B5E9C1F004384E0 /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7EC61B5E9C1F004384E0 /* resetButton.png */; };
 		F8CC7ECC1B5E9E2D004384E0 /* pausebt.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */; };
@@ -76,8 +77,10 @@
 		F811212D1B507075002D9380 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		F82BE3591B5C465100289021 /* Collecting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Collecting.mp3; sourceTree = "<group>"; };
 		F82BE35A1B5C465100289021 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		F82E16D01B6518C700B53106 /* rsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsBackground.png; sourceTree = "<group>"; };
 		F847A8F41B544680004D5156 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F85F51161B58591500B7F578 /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
+		F86E56C31B6539FB0004E8AF /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = About.png; sourceTree = "<group>"; };
 		F88B56391B5C5333001145E6 /* LoseLife1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LoseLife1.mp3; sourceTree = "<group>"; };
 		F88B563B1B5C537D001145E6 /* BgSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BgSound.mp3; sourceTree = "<group>"; };
 		F88B563D1B5C5472001145E6 /* Move.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Move.mp3; sourceTree = "<group>"; };
@@ -96,7 +99,6 @@
 		F8C9F3311B5F11DC00C91C07 /* test.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.tmx; sourceTree = "<group>"; };
 		F8C9F3331B5F138A00C91C07 /* unbelievable.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = unbelievable.wav; sourceTree = "<group>"; };
 		F8C9F3341B5F138A00C91C07 /* yay.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yay.wav; sourceTree = "<group>"; };
-		F8C9F3431B5F1B1F00C91C07 /* rsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsBackground.png; sourceTree = "<group>"; };
 		F8CC7EC41B5E9C13004384E0 /* playbt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbt.png; sourceTree = "<group>"; };
 		F8CC7EC61B5E9C1F004384E0 /* resetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resetButton.png; sourceTree = "<group>"; };
 		F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebt.png; sourceTree = "<group>"; };
@@ -175,13 +177,14 @@
 		F81121051B506FD0002D9380 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F86E56C31B6539FB0004E8AF /* About.png */,
 				F8C9F3331B5F138A00C91C07 /* unbelievable.wav */,
 				F8C9F3341B5F138A00C91C07 /* yay.wav */,
 				F8CC7ECE1B5EA51C004384E0 /* aboutbt.png */,
 				F8CC7ECA1B5E9E2D004384E0 /* pausebt.png */,
 				F8CC7ECB1B5E9E2D004384E0 /* exitbt.png */,
-				F8C9F3431B5F1B1F00C91C07 /* rsBackground.png */,
 				F8CC7EC61B5E9C1F004384E0 /* resetButton.png */,
+				F82E16D01B6518C700B53106 /* rsBackground.png */,
 				F8CC7EC41B5E9C13004384E0 /* playbt.png */,
 				F88B567B1B5C67BC001145E6 /* nextButton.png */,
 				F88B563B1B5C537D001145E6 /* BgSound.mp3 */,
@@ -302,13 +305,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C9F3441B5F1B1F00C91C07 /* rsBackground.png in Resources */,
 				F88B56401B5C5618001145E6 /* Collecting12.mp3 in Resources */,
 				F89894431B59CAF1000AF260 /* moving.atlas in Resources */,
 				F8C9F32A1B5F077900C91C07 /* Maze3.tmx in Resources */,
 				F81121161B506FD0002D9380 /* LaunchScreen.xib in Resources */,
 				F81121131B506FD0002D9380 /* Images.xcassets in Resources */,
 				F82BE35C1B5C465100289021 /* Collecting.mp3 in Resources */,
+				F86E56C41B6539FB0004E8AF /* About.png in Resources */,
 				F8CC7EC51B5E9C13004384E0 /* playbt.png in Resources */,
 				F82BE35D1B5C465100289021 /* GameOver.mp3 in Resources */,
 				F8C9F3281B5EFF4A00C91C07 /* Maze2.tmx in Resources */,
@@ -327,6 +330,7 @@
 				F88B563C1B5C537D001145E6 /* BgSound.mp3 in Resources */,
 				F8C9F3321B5F11DC00C91C07 /* test.tmx in Resources */,
 				F8CC7ECC1B5E9E2D004384E0 /* pausebt.png in Resources */,
+				F82E16D11B6518C700B53106 /* rsBackground.png in Resources */,
 				F8CC7ECD1B5E9E2D004384E0 /* exitbt.png in Resources */,
 				F88B563A1B5C5333001145E6 /* LoseLife1.mp3 in Resources */,
 				F8CC7ECF1B5EA51C004384E0 /* aboutbt.png in Resources */,
@@ -486,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = Xmaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = Xmaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,7 +15,6 @@ class Menu: SKScene {
         /* Setup your scene here */
         
         self.backgroundColor = SKColor.blackColor()
-        
         var playButton = SKSpriteNode(imageNamed: "playbt.png")
         playButton.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)//CGPoint(x: 0, y: 0)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         playButton.name = "nextButton"

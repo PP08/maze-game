@@ -18,8 +18,12 @@ class about: SKScene {
         self.backgroundColor = SKColor.blackColor()
         
         var closebt = SKSpriteNode(imageNamed: "exitbt.png")
-        closebt.position = CGPoint(x: self.size.width / (self.size.width * 0.6), y: self.size.height / 1.2)//CGPoint(x: 0, y: 0)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        closebt.name = "nextButton"
+        closebt.position = CGPoint(x: self.size.width / 2, y: self.size.height / 1.3)//CGPoint(x: self.size.width / (self.size.width * 0.5), y: self.size.height / 1.2)//CGPoint(x: 0, y: 0)//CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        
+        var AboutText:SKNode = SKSpriteNode(imageNamed: "About.png")
+        self.addChild(AboutText)
+        AboutText.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        closebt.name = "exitbt"
         
         
         self.addChild(closebt)
@@ -32,8 +36,8 @@ class about: SKScene {
         var node = self.nodeAtPoint(location)
         
         // If next button is touched, start transition to second scene
-        if (node.name == "nextButton") {
-            var secondScene = GameScene(size: self.size)
+        if (node.name == "exitbt") {
+            var secondScene = Menu(size: self.size)
             var transition = SKTransition.doorsOpenHorizontalWithDuration(1)//doorsCloseHorizontalWithDuration(1)
             secondScene.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(secondScene, transition: transition)

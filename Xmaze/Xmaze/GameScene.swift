@@ -393,17 +393,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if(node.name == "PlayButton") {
             
             self.scene!.view!.paused = false
-            
+            playBackgroundSound("BgSound")
             PlayButton!.removeFromParent()
             rsBackground!.removeFromParent()
             exitMenu!.removeFromParent()
             resetButton!.removeFromParent()
             
-            if (bgSoundPlayer != nil) {
+            /*if (bgSoundPlayer != nil) {
                 
                 bgSoundPlayer!.stop()
                 bgSoundPlayer = nil
-            }
+            }*/
 
             Pause()
         }
@@ -440,7 +440,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             resetButton!.removeFromParent()
             
             var menuScene = Menu(size: self.size)
-            var transition = SKTransition.doorsCloseHorizontalWithDuration(0.5)
+            var transition = SKTransition.doorsCloseHorizontalWithDuration(1)
             menuScene.scaleMode = SKSceneScaleMode.AspectFill
             self.scene!.view?.presentScene(menuScene, transition: transition)
             livesLeft = 3
@@ -938,6 +938,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         if (livesLeft == 0) {
             // show text label with gameover
             
+            PauseButton?.removeFromParent()
+        
             gameLabel!.text = "GAME OVER"
             
             gameLabel!.position = CGPointZero
